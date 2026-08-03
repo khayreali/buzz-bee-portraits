@@ -1,0 +1,155 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # A clone must work with no pip install and no downloads. This job installs
+  # nothing on purpose.
+  bare:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: repository checks
+        run: python3 tests/check_repo.py
+
+      - name: assembler runs
+        run: python3 bin/assemble_bee.py --seed 7
+
+      - name: generator builds a prompt without calling the api
+        run: python3 bin/generate_bee.py --seed 7 --dry-run --out /dev/null
+
+      - name: colour packer runs
+        run: python3 bin/clay_colours.py sample --count 5
+
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: install into a temporary nest
+        run: |
+          mkdir -p /tmp/nest
+          BUZZ_NEST=/tmp/nest ./install.sh
+
+      - name: the installed skill is self contained
+        run: |
+          skill=/tmp/nest/.agents/skills/bee-portrait
+          test -f "$skill/SKILL.md"
+          test -f "$skill/bin/components.json"
+          test -f "$skill/bin/generate_bee.py"
+          test -f "$skill/refs/fizz.png"
+          test -f "$skill/refs/LICENSE"
+
+      - name: the installed skill runs from outside any checkout
+        run: |
+          cd /tmp
+          python3 /tmp/nest/.agents/skills/bee-portrait/bin/generate_bee.py \
+            --seed 7 --dry-run --out /dev/null
+
+      - name: check mode reports a healthy install
+        run: BUZZ_NEST=/tmp/nest ./install.sh --check
+
+      - name: check mode fails when nothing is installed
+        run: |
+          mkdir -p /tmp/emptynest
+          if BUZZ_NEST=/tmp/emptynest ./install.sh --check; then
+            echo "--check should exit nonzero when nothing is installed"
+            exit 1
+          fi
+
+      - name: help does not install anything
+        run: |
+          mkdir -p /tmp/helpnest
+          BUZZ_NEST=/tmp/helpnest ./install.sh --help
+          if [ -e /tmp/helpnest/.agents ]; then
+            echo "--help installed something"
+            exit 1
+          fi
+
+      - name: an unknown option is rejected
+        run: |
+          if BUZZ_NEST=/tmp/nest ./install.sh --bogus; then
+            echo "an unknown option should exit nonzero"
+            exit 1
+          fi
+
+      - name: reinstalling keeps the previous install
+        run: |
+          echo '{"marker": true}' > /tmp/nest/.agents/skills/bee-portrait/bin/roster.json
+          BUZZ_NEST=/tmp/nest ./install.sh
+          test -f /tmp/nest/.agents/skills/bee-portrait.previous/bin/roster.json
+          if [ -f /tmp/nest/.agents/skills/bee-portrait/bin/roster.json ]; then
+            echo "roster.json should not be carried into a new install"
+            exit 1
+          fi
+
+      # An incomplete tree must never be used as the source, and must never
+      # leave the install it replaced in pieces. This is checked by marking the
+      # bad tree and proving the marker did not reach the install, which holds
+      # whether the fall through to the download succeeds or fails.
+      - name: an incomplete source is refused and damages nothing
+        run: |
+          mkdir -p /tmp/partial
+          cp -R skills /tmp/partial/
+          cp install.sh /tmp/partial/
+          echo "STALE SOURCE MARKER" >> /tmp/partial/skills/bee-portrait/SKILL.md
+          cd /tmp/partial
+          BUZZ_NEST=/tmp/nest ./install.sh || true
+          test -f /tmp/nest/.agents/skills/bee-portrait/bin/components.json
+          test -f /tmp/nest/.agents/skills/bee-portrait/refs/fizz.png
+          if grep -q "STALE SOURCE MARKER" /tmp/nest/.agents/skills/bee-portrait/SKILL.md; then
+            echo "the incomplete tree was used as the install source"
+            exit 1
+          fi
+
+      - name: dash accepts the installer
+        run: dash -n install.sh
+
+  provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: install pillow
+        run: pip install -r requirements.txt
+
+      # The committed portraits are derivative works. This proves they really
+      # are what refs/LICENSE says they are, a crop of the block/buzz originals.
+      - name: committed portraits match a fresh derivation
+        run: |
+          mkdir -p /tmp/before
+          cp refs/*.png /tmp/before/
+          ./refs/fetch.sh
+          python3 -c "
+          from PIL import Image
+          import sys
+          failed = False
+          for name in ['fizz', 'honey', 'bumble']:
+              before = Image.open('/tmp/before/' + name + '.png').convert('RGB')
+              after = Image.open('refs/' + name + '.png').convert('RGB')
+              if before.tobytes() != after.tobytes():
+                  print(name + '.png does not match a fresh derivation from block/buzz')
+                  failed = True
+              else:
+                  print(name + '.png reproduces exactly')
+          sys.exit(1 if failed else 0)
+          "

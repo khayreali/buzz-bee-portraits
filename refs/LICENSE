@@ -1,0 +1,44 @@
+Reference portraits
+===================
+
+The three portrait files in this directory (fizz.png, honey.png, bumble.png)
+are derivative works. They come from block/buzz:
+
+  https://github.com/block/buzz
+  desktop/public/onboarding/starter-team/
+
+That repository is licensed under the Apache License, Version 2.0.
+Copyright 2026 Block, Inc.
+
+A copy of the Apache License, Version 2.0 is in the LICENSE file at the root
+of this repository.
+
+Statement of changes
+--------------------
+
+The originals are full standing figures, 160 pixels wide, on a transparent
+background. The files here have been modified. Each one was cropped to a
+square anchored on the head, composited onto a white background, and resized
+to 384 by 384 pixels. Nothing else was altered. No colour, shape or detail was
+changed.
+
+The crop exists because this project generates bust portraits, and an image
+model copies the composition of the references it is shown. Sending the full
+standing figures produces standing figures.
+
+To re-derive these files yourself from the originals, run:
+
+    ./refs/fetch.sh
+
+That downloads the unmodified originals into refs/originals and regenerates
+the crops with refs/make_references.py, so you can verify the provenance
+rather than taking this file's word for it.
+
+Trademarks
+----------
+
+Apache License, Version 2.0, section 6 grants no rights in trade names,
+trademarks, service marks, or product names. The bee characters function as
+Block's brand identity. This project is not affiliated with Block, Inc., is
+not endorsed by Block, Inc., and the portraits are not offered here as
+branding you may reuse. Generate bees for your own agent roster.

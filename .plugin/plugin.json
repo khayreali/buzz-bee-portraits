@@ -1,0 +1,21 @@
+{
+  "$schema": "https://open-plugin-spec.org/schema/v1/plugin.json",
+  "id": "com.khayreali.buzz-bee-portraits",
+  "name": "Buzz Bee Portraits",
+  "version": "1.0.0",
+  "description": "Generate claymation bee portraits for Buzz agent profile pictures from a component library of nine slots.",
+  "author": "Khayre Ali",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/khayreali/buzz-bee-portraits",
+  "repository": "https://github.com/khayreali/buzz-bee-portraits",
+  "keywords": [
+    "buzz",
+    "avatar",
+    "portrait",
+    "image-generation",
+    "gemini"
+  ],
+  "personas": [
+    "agents/bee-artist.persona.md"
+  ]
+}

@@ -1,0 +1,7 @@
+# Everything here is optional. The tools run on the Python standard library.
+#
+# Install Pillow only if you want:
+#   the 384 pixel downsample in generate_bee.py, instead of the model's own size
+#   the measure subcommand and the --swatch option in clay_colours.py
+#   refs/make_references.py, which re-derives the reference portraits
+Pillow>=9.0

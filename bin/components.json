@@ -1,0 +1,3496 @@
+{
+ "_comment": "Component library for the bee portrait system. Each slot holds written descriptions, not sprites. Isolated sprites do not sit on a head convincingly, because the light angle varies about 40 degrees across the shipped portraits and the contact shadow around a raised feature depends on what it is sitting on. So the model renders the whole head at once with these slots filled in. Grow each list toward 100 or beyond. The assembler does not care how many entries there are.",
+ "_slots_are_open": "Add entries freely. Every entry needs an id and a phrase. The phrase is dropped word for word into the prompt, so write it the way you would describe the thing to somebody sculpting it. Test a new entry at small sizes, because anything that collapses into a shape the library already has at 24 to 48 pixels adds nothing.",
+ "_taken_by_note": "The taken_by fields name the roster this library was built for (Honey, Fizz, Bumble, Hive, Comb, Nectar, Jelly). They are here so those bees keep their own components. Your roster is different, so --respect-taken will skip the wrong things for you. Either clear these fields or leave the flag off.",
+ "base_colour": [
+  {
+   "id": "terracotta",
+   "phrase": "warm terracotta red-orange clay",
+   "hue": 8,
+   "taken_by": "Honey"
+  },
+  {
+   "id": "chartreuse",
+   "phrase": "chartreuse yellow-green clay",
+   "hue": 56,
+   "taken_by": "Fizz"
+  },
+  {
+   "id": "green",
+   "phrase": "grass green clay",
+   "hue": 120,
+   "taken_by": "Comb"
+  },
+  {
+   "id": "teal",
+   "phrase": "deep teal-green clay",
+   "hue": 166,
+   "taken_by": "Nectar"
+  },
+  {
+   "id": "cobalt",
+   "phrase": "cobalt blue clay",
+   "hue": 207,
+   "taken_by": "Bumble"
+  },
+  {
+   "id": "indigo",
+   "phrase": "blue-violet indigo clay",
+   "hue": 230,
+   "taken_by": "Jelly"
+  },
+  {
+   "id": "orchid",
+   "phrase": "magenta-orchid clay",
+   "hue": 300,
+   "taken_by": "Hive"
+  },
+  {
+   "id": "amber",
+   "phrase": "deep amber-gold clay",
+   "hue": 43,
+   "taken_by": null
+  },
+  {
+   "id": "coral",
+   "phrase": "soft coral pink clay",
+   "hue": 350,
+   "taken_by": null
+  },
+  {
+   "id": "slate",
+   "phrase": "muted blue-slate clay",
+   "hue": 215,
+   "taken_by": null
+  },
+  {
+   "id": "pale-orchid",
+   "phrase": "pale orchid clay",
+   "hex": "#D68DB6",
+   "taken_by": null
+  },
+  {
+   "id": "deep-muted-chartreuse",
+   "phrase": "deep muted chartreuse clay",
+   "hex": "#565428",
+   "taken_by": null
+  },
+  {
+   "id": "pale-vivid-rust-orange",
+   "phrase": "pale vivid rust orange clay",
+   "hex": "#EA8C40",
+   "taken_by": null
+  },
+  {
+   "id": "deep-vivid-raspberry",
+   "phrase": "deep vivid raspberry clay",
+   "hex": "#9F1157",
+   "taken_by": null
+  },
+  {
+   "id": "pale-vivid-violet",
+   "phrase": "pale vivid violet clay",
+   "hex": "#B591F6",
+   "taken_by": null
+  },
+  {
+   "id": "pale-muted-burnt-orange",
+   "phrase": "pale muted burnt orange clay",
+   "hex": "#C49B75",
+   "taken_by": null
+  },
+  {
+   "id": "pale-petrol-blue",
+   "phrase": "pale petrol blue clay",
+   "hex": "#17B2D1",
+   "taken_by": null
+  },
+  {
+   "id": "deep-muted-orchid",
+   "phrase": "deep muted orchid clay",
+   "hex": "#704369",
+   "taken_by": null
+  },
+  {
+   "id": "pale-vivid-rose-red",
+   "phrase": "pale vivid rose red clay",
+   "hex": "#F96782",
+   "taken_by": null
+  },
+  {
+   "id": "deep-leaf-green",
+   "phrase": "deep leaf green clay",
+   "hex": "#056026",
+   "taken_by": null
+  },
+  {
+   "id": "deep-amber-gold",
+   "phrase": "deep amber gold clay",
+   "hex": "#875E03",
+   "taken_by": null
+  },
+  {
+   "id": "vivid-cobalt-blue",
+   "phrase": "vivid cobalt blue clay",
+   "hex": "#408EF4",
+   "taken_by": null
+  },
+  {
+   "id": "sage-green",
+   "phrase": "muted sage green clay",
+   "hex": "#799758",
+   "taken_by": null
+  },
+  {
+   "id": "deep-muted-deep-teal",
+   "phrase": "deep muted deep teal clay",
+   "hex": "#05707C",
+   "taken_by": null
+  },
+  {
+   "id": "vivid-raspberry",
+   "phrase": "vivid raspberry clay",
+   "hex": "#E15FA8",
+   "taken_by": null
+  },
+  {
+   "id": "pale-muted-indigo",
+   "phrase": "pale muted indigo clay",
+   "hex": "#A09DD9",
+   "taken_by": null
+  },
+  {
+   "id": "pale-brick-red",
+   "phrase": "pale brick red clay",
+   "hex": "#EF866F",
+   "taken_by": null
+  },
+  {
+   "id": "pale-steel-blue",
+   "phrase": "pale steel blue clay",
+   "hex": "#20ADF5",
+   "taken_by": null
+  },
+  {
+   "id": "muted-rose-red",
+   "phrase": "muted rose red clay",
+   "hex": "#B37274",
+   "taken_by": null
+  },
+  {
+   "id": "deep-purple",
+   "phrase": "deep purple clay",
+   "hex": "#874E9E",
+   "taken_by": null
+  },
+  {
+   "id": "vivid-olive-green",
+   "phrase": "vivid olive green clay",
+   "hex": "#5B7908",
+   "taken_by": null
+  },
+  {
+   "id": "pale-vivid-jade-green",
+   "phrase": "pale vivid jade green clay",
+   "hex": "#14BA79",
+   "taken_by": null
+  },
+  {
+   "id": "deep-vivid-rust-orange",
+   "phrase": "deep vivid rust orange clay",
+   "hex": "#A64B0B",
+   "taken_by": null
+  },
+  {
+   "id": "deep-muted-terracotta",
+   "phrase": "deep muted terracotta clay",
+   "hex": "#754737",
+   "taken_by": null
+  },
+  {
+   "id": "deep-muted-jade-green",
+   "phrase": "deep muted jade green clay",
+   "hex": "#1C5D48",
+   "taken_by": null
+  },
+  {
+   "id": "deep-dusty-pink",
+   "phrase": "deep dusty pink clay",
+   "hex": "#8A364A",
+   "taken_by": null
+  },
+  {
+   "id": "mustard-yellow",
+   "phrase": "mustard yellow clay",
+   "hex": "#958340",
+   "taken_by": null
+  },
+  {
+   "id": "rust-orange",
+   "phrase": "rust orange clay",
+   "hex": "#B87442",
+   "taken_by": null
+  },
+  {
+   "id": "pale-vivid-amber-gold",
+   "phrase": "pale vivid amber gold clay",
+   "hex": "#C39029",
+   "taken_by": null
+  },
+  {
+   "id": "deep-indigo",
+   "phrase": "deep indigo clay",
+   "hex": "#4F4B89",
+   "taken_by": null
+  }
+ ],
+ "nose": [
+  {
+   "id": "none",
+   "phrase": "no nose at all, a smooth flat face"
+  },
+  {
+   "id": "drooping",
+   "phrase": "a large drooping nose hanging low over the mouth"
+  },
+  {
+   "id": "long-straight",
+   "phrase": "a long straight nose reaching down the face"
+  },
+  {
+   "id": "button",
+   "phrase": "a small round button nose"
+  },
+  {
+   "id": "upturned",
+   "phrase": "a short upturned nose with the tip lifted"
+  },
+  {
+   "id": "broad-flat",
+   "phrase": "a broad flattened nose spread across the middle of the face"
+  },
+  {
+   "id": "hooked",
+   "phrase": "a narrow hooked nose curving down at the tip"
+  },
+  {
+   "id": "tiny-dot",
+   "phrase": "a nose so small it is barely a dot of clay"
+  },
+  {
+   "id": "bulbous",
+   "phrase": "a big bulbous nose like a ball of dough"
+  },
+  {
+   "id": "pointed",
+   "phrase": "a sharply pointed nose"
+  },
+  {
+   "id": "squashed",
+   "phrase": "a squashed nose pressed flat against the face"
+  },
+  {
+   "id": "crooked-left",
+   "phrase": "a crooked nose bending to the left"
+  },
+  {
+   "id": "crooked-right",
+   "phrase": "a crooked nose bending to the right"
+  },
+  {
+   "id": "roman",
+   "phrase": "a straight nose with a pronounced bridge bump"
+  },
+  {
+   "id": "snub",
+   "phrase": "a very short snub nose"
+  },
+  {
+   "id": "wide-nostrils",
+   "phrase": "a nose with two large open nostrils"
+  },
+  {
+   "id": "pinched",
+   "phrase": "a thin pinched nose with narrow nostrils"
+  },
+  {
+   "id": "wedge",
+   "phrase": "a simple wedge of clay for a nose"
+  },
+  {
+   "id": "triangular",
+   "phrase": "a neat triangular nose"
+  },
+  {
+   "id": "rounded-tip",
+   "phrase": "a nose with a soft rounded ball at the tip"
+  },
+  {
+   "id": "flat-tip",
+   "phrase": "a nose with a flat cut-off tip"
+  },
+  {
+   "id": "cleft-tip",
+   "phrase": "a nose with a small dimple in the tip"
+  },
+  {
+   "id": "turned-down",
+   "phrase": "a nose whose tip turns firmly downward"
+  },
+  {
+   "id": "turned-up",
+   "phrase": "a nose whose tip tilts cheekily upward"
+  },
+  {
+   "id": "long-thin",
+   "phrase": "a long thin nose like a pencil"
+  },
+  {
+   "id": "long-wide",
+   "phrase": "a long wide nose covering much of the face"
+  },
+  {
+   "id": "short-wide",
+   "phrase": "a short wide nose sitting low"
+  },
+  {
+   "id": "short-thin",
+   "phrase": "a short thin nose barely there"
+  },
+  {
+   "id": "high-set",
+   "phrase": "a nose set high, close between the eyes"
+  },
+  {
+   "id": "low-set",
+   "phrase": "a nose set low, nearly touching the mouth"
+  },
+  {
+   "id": "off-centre",
+   "phrase": "a nose noticeably off to one side"
+  },
+  {
+   "id": "huge",
+   "phrase": "an enormous nose dominating the whole face"
+  },
+  {
+   "id": "sloped",
+   "phrase": "a nose sloping gently outward from the brow"
+  },
+  {
+   "id": "stepped",
+   "phrase": "a nose with a small step partway down"
+  },
+  {
+   "id": "double-bump",
+   "phrase": "a nose with two small bumps along the bridge"
+  },
+  {
+   "id": "smooth-bridge",
+   "phrase": "a nose with a perfectly smooth bridge"
+  },
+  {
+   "id": "sharp-bridge",
+   "phrase": "a nose with a sharp ridged bridge"
+  },
+  {
+   "id": "soft-lump",
+   "phrase": "a soft shapeless lump of a nose"
+  },
+  {
+   "id": "carrot",
+   "phrase": "a long tapering carrot-shaped nose"
+  },
+  {
+   "id": "beak",
+   "phrase": "a firm beak-like nose"
+  },
+  {
+   "id": "snout",
+   "phrase": "a short snout pushed forward"
+  },
+  {
+   "id": "piggy",
+   "phrase": "a flat piggy nose with two round nostrils"
+  },
+  {
+   "id": "freckled-nose",
+   "phrase": "a nose dusted with tiny freckles"
+  },
+  {
+   "id": "shiny-tip",
+   "phrase": "a nose with a bright shiny tip"
+  },
+  {
+   "id": "red-tip",
+   "phrase": "a nose with a slightly redder tip"
+  },
+  {
+   "id": "pale-nose",
+   "phrase": "a nose in noticeably paler clay than the face"
+  },
+  {
+   "id": "dark-nose",
+   "phrase": "a nose in noticeably darker clay than the face"
+  },
+  {
+   "id": "striped-nose",
+   "phrase": "a nose with a faint stripe along the bridge"
+  },
+  {
+   "id": "wrinkled-nose",
+   "phrase": "a wrinkled nose, scrunched as if sniffing"
+  },
+  {
+   "id": "twitching",
+   "phrase": "a nose caught mid-twitch"
+  },
+  {
+   "id": "flared",
+   "phrase": "a nose with the nostrils flared wide"
+  },
+  {
+   "id": "one-nostril",
+   "phrase": "a nose with a single central nostril"
+  },
+  {
+   "id": "no-nostrils",
+   "phrase": "a smooth nose with no nostrils at all"
+  },
+  {
+   "id": "three-bump",
+   "phrase": "a knobbly nose with three small bumps"
+  },
+  {
+   "id": "pitted",
+   "phrase": "a nose with a few small pits pressed into it"
+  },
+  {
+   "id": "scarred",
+   "phrase": "a nose with a small clay scar across it"
+  },
+  {
+   "id": "bandaged",
+   "phrase": "a nose with a tiny clay plaster across the bridge"
+  },
+  {
+   "id": "runny",
+   "phrase": "a nose with a small clay drip beneath it"
+  },
+  {
+   "id": "cold",
+   "phrase": "a nose with a slightly raw pink tip"
+  },
+  {
+   "id": "thumbprint",
+   "phrase": "a nose that is clearly one pressed thumbprint"
+  },
+  {
+   "id": "pinched-top",
+   "phrase": "a nose pinched narrow at the top and wide below"
+  },
+  {
+   "id": "pinched-bottom",
+   "phrase": "a nose wide at the top and pinched narrow below"
+  },
+  {
+   "id": "diamond",
+   "phrase": "a diamond-shaped nose"
+  },
+  {
+   "id": "oval-nose",
+   "phrase": "a smooth oval nose"
+  },
+  {
+   "id": "teardrop-nose",
+   "phrase": "a teardrop-shaped nose, narrow above and full below"
+  },
+  {
+   "id": "comma",
+   "phrase": "a nose shaped like a comma"
+  },
+  {
+   "id": "question-hook",
+   "phrase": "a nose with an exaggerated hook like a question mark"
+  },
+  {
+   "id": "ski-jump",
+   "phrase": "a nose with a concave curve and lifted tip"
+  },
+  {
+   "id": "straight-down",
+   "phrase": "a nose running straight down with no curve at all"
+  },
+  {
+   "id": "angled-out",
+   "phrase": "a nose angling outward from the face"
+  },
+  {
+   "id": "tucked-in",
+   "phrase": "a nose pressed close and flat to the face"
+  },
+  {
+   "id": "long-droop",
+   "phrase": "a very long nose drooping past the mouth"
+  },
+  {
+   "id": "stub",
+   "phrase": "a blunt stub of a nose"
+  },
+  {
+   "id": "cone",
+   "phrase": "a neat cone of a nose"
+  },
+  {
+   "id": "cylinder",
+   "phrase": "a smooth cylindrical nose"
+  },
+  {
+   "id": "flattened-side",
+   "phrase": "a nose flattened on one side only"
+  },
+  {
+   "id": "lopsided",
+   "phrase": "a lopsided nose, fuller on one side"
+  },
+  {
+   "id": "tilted-left",
+   "phrase": "a nose tilting to the left"
+  },
+  {
+   "id": "tilted-right",
+   "phrase": "a nose tilting to the right"
+  },
+  {
+   "id": "wavy",
+   "phrase": "a nose with a gentle wave along its length"
+  },
+  {
+   "id": "knobbed",
+   "phrase": "a nose with a single knob near the tip"
+  },
+  {
+   "id": "split",
+   "phrase": "a nose with a shallow split down the middle"
+  },
+  {
+   "id": "grooved",
+   "phrase": "a nose with a groove running down its length"
+  },
+  {
+   "id": "ridged",
+   "phrase": "a nose with fine ridges along the bridge"
+  },
+  {
+   "id": "smooth-blob",
+   "phrase": "a smooth featureless blob of a nose"
+  },
+  {
+   "id": "sharp-edged",
+   "phrase": "a nose with crisp sharp edges"
+  },
+  {
+   "id": "soft-edged",
+   "phrase": "a nose melting softly into the face"
+  },
+  {
+   "id": "raised-high",
+   "phrase": "a nose standing well proud of the face"
+  },
+  {
+   "id": "barely-raised",
+   "phrase": "a nose only just raised from the surface"
+  },
+  {
+   "id": "painted",
+   "phrase": "a nose suggested by shading rather than sculpted"
+  },
+  {
+   "id": "overhanging",
+   "phrase": "a nose overhanging the mouth like a shelf"
+  },
+  {
+   "id": "shadowed",
+   "phrase": "a nose casting a strong shadow across the face"
+  },
+  {
+   "id": "glossy-nose",
+   "phrase": "a very glossy nose catching a bright highlight"
+  },
+  {
+   "id": "matte-nose",
+   "phrase": "a completely matte nose with no shine"
+  },
+  {
+   "id": "fingerprinted",
+   "phrase": "a nose with visible fingerprints pressed into the clay"
+  },
+  {
+   "id": "squared",
+   "phrase": "a squared-off boxy nose"
+  },
+  {
+   "id": "heart-nose",
+   "phrase": "a small heart-shaped nose"
+  },
+  {
+   "id": "star-nose",
+   "phrase": "a tiny star-shaped nose"
+  },
+  {
+   "id": "button-pair",
+   "phrase": "two small button noses stacked one above the other"
+  },
+  {
+   "id": "whiskered",
+   "phrase": "a nose with a few fine clay whiskers either side"
+  }
+ ],
+ "eyes": [
+  {
+   "id": "round-wide",
+   "phrase": "two large round eyes, cream sclera with dark grey-brown pupils, set wide apart"
+  },
+  {
+   "id": "round-close",
+   "phrase": "two large round eyes set close together over the nose"
+  },
+  {
+   "id": "tiny-beady",
+   "phrase": "two very small beady eyes in a broad face"
+  },
+  {
+   "id": "huge-startled",
+   "phrase": "two enormous startled eyes with tiny pupils dead centre"
+  },
+  {
+   "id": "half-lidded",
+   "phrase": "two half-lidded eyes with heavy clay lids drooping over the top"
+  },
+  {
+   "id": "sleepy",
+   "phrase": "two nearly closed sleepy eyes, just dark slits"
+  },
+  {
+   "id": "one-raised-lid",
+   "phrase": "two round eyes, one lid raised higher than the other"
+  },
+  {
+   "id": "squint",
+   "phrase": "two narrowed squinting eyes"
+  },
+  {
+   "id": "wide-awake",
+   "phrase": "two very large alert eyes with the whites showing all round"
+  },
+  {
+   "id": "mismatched-size",
+   "phrase": "two round eyes of noticeably different sizes"
+  },
+  {
+   "id": "oval-tall",
+   "phrase": "two tall oval eyes, taller than they are wide"
+  },
+  {
+   "id": "oval-wide",
+   "phrase": "two wide oval eyes, wider than they are tall"
+  },
+  {
+   "id": "almond",
+   "phrase": "two almond-shaped eyes tapering at the outer corners"
+  },
+  {
+   "id": "teardrop",
+   "phrase": "two teardrop-shaped eyes with the points facing outward"
+  },
+  {
+   "id": "square-ish",
+   "phrase": "two softly squared-off eyes with rounded corners"
+  },
+  {
+   "id": "crescent",
+   "phrase": "two upturned crescent eyes, as if smiling"
+  },
+  {
+   "id": "downturned",
+   "phrase": "two downturned eyes sloping sadly at the outer corners"
+  },
+  {
+   "id": "upturned",
+   "phrase": "two eyes tilted sharply up at the outer corners"
+  },
+  {
+   "id": "bulging",
+   "phrase": "two bulging eyes protruding well clear of the face"
+  },
+  {
+   "id": "sunken",
+   "phrase": "two deep-set eyes sunk into shadowed sockets"
+  },
+  {
+   "id": "button",
+   "phrase": "two small flat button eyes with no visible whites"
+  },
+  {
+   "id": "pinprick",
+   "phrase": "two dark pinprick pupils in large pale eyes"
+  },
+  {
+   "id": "saucer",
+   "phrase": "two flat saucer-like eyes taking up most of the face"
+  },
+  {
+   "id": "googly",
+   "phrase": "two loose googly eyes with the pupils off-centre"
+  },
+  {
+   "id": "cross-eyed",
+   "phrase": "two eyes with the pupils turned inward toward each other"
+  },
+  {
+   "id": "wall-eyed",
+   "phrase": "two eyes with the pupils turned outward away from each other"
+  },
+  {
+   "id": "looking-up",
+   "phrase": "two eyes with the pupils rolled upward"
+  },
+  {
+   "id": "looking-down",
+   "phrase": "two eyes with the pupils cast downward"
+  },
+  {
+   "id": "looking-left",
+   "phrase": "two eyes glancing off to one side"
+  },
+  {
+   "id": "side-eye",
+   "phrase": "two eyes cutting a suspicious sideways glance"
+  },
+  {
+   "id": "wink-left",
+   "phrase": "one eye open wide and the other closed in a wink"
+  },
+  {
+   "id": "both-shut",
+   "phrase": "two eyes squeezed happily shut into curved lines"
+  },
+  {
+   "id": "one-shut",
+   "phrase": "one eye round and open, the other pressed shut"
+  },
+  {
+   "id": "heavy-brows",
+   "phrase": "two round eyes under thick heavy clay brows"
+  },
+  {
+   "id": "raised-brow",
+   "phrase": "two eyes with one clay brow arched high"
+  },
+  {
+   "id": "furrowed",
+   "phrase": "two eyes under brows drawn together in a frown"
+  },
+  {
+   "id": "worried-brows",
+   "phrase": "two eyes under brows tilted up in the middle"
+  },
+  {
+   "id": "no-brows",
+   "phrase": "two plain round eyes with no brows at all"
+  },
+  {
+   "id": "long-lashes",
+   "phrase": "two round eyes fringed with thick clay lashes"
+  },
+  {
+   "id": "lower-lashes",
+   "phrase": "two eyes with small lashes along the lower lid only"
+  },
+  {
+   "id": "monolid",
+   "phrase": "two smooth monolid eyes with no crease"
+  },
+  {
+   "id": "double-lid",
+   "phrase": "two eyes with a pronounced crease above each"
+  },
+  {
+   "id": "hooded",
+   "phrase": "two hooded eyes with the lids overhanging"
+  },
+  {
+   "id": "puffy",
+   "phrase": "two eyes with puffy pillows of clay beneath them"
+  },
+  {
+   "id": "eyebags",
+   "phrase": "two tired eyes over dark clay eyebags"
+  },
+  {
+   "id": "freckled",
+   "phrase": "two round eyes with tiny freckles scattered beneath"
+  },
+  {
+   "id": "big-left",
+   "phrase": "the left eye much larger than the right"
+  },
+  {
+   "id": "big-right",
+   "phrase": "the right eye much larger than the left"
+  },
+  {
+   "id": "high-low",
+   "phrase": "two eyes set at noticeably different heights"
+  },
+  {
+   "id": "tilted-pair",
+   "phrase": "two eyes both tilted at the same jaunty angle"
+  },
+  {
+   "id": "very-wide-set",
+   "phrase": "two eyes pushed right out to the edges of the face"
+  },
+  {
+   "id": "centre-set",
+   "phrase": "two eyes crowded into the middle of the face"
+  },
+  {
+   "id": "stacked",
+   "phrase": "two eyes set unusually high on the forehead"
+  },
+  {
+   "id": "low-set",
+   "phrase": "two eyes set low, close to the mouth"
+  },
+  {
+   "id": "three-eyes",
+   "phrase": "three round eyes, two normal and a small third above"
+  },
+  {
+   "id": "one-big-eye",
+   "phrase": "a single enormous eye in the centre of the face"
+  },
+  {
+   "id": "four-small",
+   "phrase": "four small eyes arranged in two neat rows"
+  },
+  {
+   "id": "spiral-pupils",
+   "phrase": "two eyes with spiral pupils"
+  },
+  {
+   "id": "star-pupils",
+   "phrase": "two eyes with small star-shaped pupils"
+  },
+  {
+   "id": "heart-pupils",
+   "phrase": "two eyes with heart-shaped pupils"
+  },
+  {
+   "id": "slit-pupils",
+   "phrase": "two eyes with vertical slit pupils"
+  },
+  {
+   "id": "square-pupils",
+   "phrase": "two eyes with small square pupils"
+  },
+  {
+   "id": "huge-pupils",
+   "phrase": "two eyes almost entirely pupil, barely any white"
+  },
+  {
+   "id": "no-pupils",
+   "phrase": "two blank pale eyes with no pupils at all"
+  },
+  {
+   "id": "ring-pupils",
+   "phrase": "two eyes with pale rings around dark pupils"
+  },
+  {
+   "id": "double-pupils",
+   "phrase": "two eyes each holding two small pupils"
+  },
+  {
+   "id": "glossy",
+   "phrase": "two very glossy eyes with bright highlight dots"
+  },
+  {
+   "id": "matte",
+   "phrase": "two flat matte eyes with no highlight"
+  },
+  {
+   "id": "dull",
+   "phrase": "two dull unpolished eyes"
+  },
+  {
+   "id": "sparkling",
+   "phrase": "two eyes with several small sparkle highlights each"
+  },
+  {
+   "id": "watery",
+   "phrase": "two glistening eyes brimming slightly"
+  },
+  {
+   "id": "dry",
+   "phrase": "two dry papery eyes"
+  },
+  {
+   "id": "dark-sclera",
+   "phrase": "two eyes with dark sclera and pale pupils, inverted"
+  },
+  {
+   "id": "amber-sclera",
+   "phrase": "two eyes with warm amber whites"
+  },
+  {
+   "id": "pink-rimmed",
+   "phrase": "two eyes rimmed in pink clay"
+  },
+  {
+   "id": "grey-rimmed",
+   "phrase": "two eyes outlined in dark grey clay"
+  },
+  {
+   "id": "thick-outline",
+   "phrase": "two eyes with a thick dark clay outline"
+  },
+  {
+   "id": "thin-outline",
+   "phrase": "two eyes with the faintest outline"
+  },
+  {
+   "id": "smudged",
+   "phrase": "two eyes with softly smudged edges"
+  },
+  {
+   "id": "sharp",
+   "phrase": "two eyes with crisp sharply-defined edges"
+  },
+  {
+   "id": "deep-socket",
+   "phrase": "two eyes each sitting in a pressed clay socket"
+  },
+  {
+   "id": "raised-socket",
+   "phrase": "two eyes each on a small raised clay pad"
+  },
+  {
+   "id": "stalked",
+   "phrase": "two eyes on very short stubby stalks off the face"
+  },
+  {
+   "id": "mask-patch",
+   "phrase": "two eyes inside a darker patch of clay like a mask"
+  },
+  {
+   "id": "pale-patch",
+   "phrase": "two eyes inside a pale patch of clay"
+  },
+  {
+   "id": "single-brow",
+   "phrase": "two eyes under one continuous brow running across"
+  },
+  {
+   "id": "scar-brow",
+   "phrase": "two eyes, one brow interrupted by a small notch"
+  },
+  {
+   "id": "mole",
+   "phrase": "two eyes with a small clay mole beneath one"
+  },
+  {
+   "id": "wrinkled",
+   "phrase": "two eyes surrounded by fine crow's-feet creases"
+  },
+  {
+   "id": "smooth",
+   "phrase": "two eyes in perfectly smooth unlined clay"
+  },
+  {
+   "id": "tearful",
+   "phrase": "two eyes with a single clay tear on one cheek"
+  },
+  {
+   "id": "determined",
+   "phrase": "two narrowed eyes under lowered brows, jaw set"
+  },
+  {
+   "id": "curious",
+   "phrase": "two eyes with brows raised and pupils high"
+  },
+  {
+   "id": "bored",
+   "phrase": "two half-open eyes with pupils drifting sideways"
+  },
+  {
+   "id": "alarmed",
+   "phrase": "two eyes stretched tall with the pupils shrunk small"
+  },
+  {
+   "id": "gentle",
+   "phrase": "two soft rounded eyes with relaxed lids"
+  },
+  {
+   "id": "fierce",
+   "phrase": "two hard eyes with sharply angled lids"
+  },
+  {
+   "id": "dreamy",
+   "phrase": "two unfocused eyes gazing past the viewer"
+  },
+  {
+   "id": "blinking",
+   "phrase": "two eyes caught mid-blink, lids halfway down"
+  },
+  {
+   "id": "one-closed-one-wide",
+   "phrase": "one eye squeezed shut and the other stretched wide open"
+  }
+ ],
+ "antennae": [
+  {
+   "id": "coil",
+   "phrase": "two tightly coiled spring antennae",
+   "posture": "coil"
+  },
+  {
+   "id": "curve",
+   "phrase": "two smooth open curving antennae",
+   "posture": "curve"
+  },
+  {
+   "id": "straight",
+   "phrase": "two straight upright antenna stalks",
+   "posture": "straight"
+  },
+  {
+   "id": "arc",
+   "phrase": "two antennae rising in a calm symmetrical arc",
+   "posture": "arc"
+  },
+  {
+   "id": "splay",
+   "phrase": "two antennae splayed low and wide out to the sides",
+   "posture": "wide-low"
+  },
+  {
+   "id": "asymmetric",
+   "phrase": "two antennae at clearly different heights, one up and one out",
+   "posture": "asymmetric"
+  },
+  {
+   "id": "tall",
+   "phrase": "two very tall thin antennae reaching high above the head",
+   "posture": "tall"
+  },
+  {
+   "id": "short",
+   "phrase": "two short stubby antennae barely clearing the head",
+   "posture": "short"
+  },
+  {
+   "id": "droop",
+   "phrase": "two antennae drooping downward and outward",
+   "posture": "droop"
+  },
+  {
+   "id": "zigzag",
+   "phrase": "two sharply kinked zigzag antennae",
+   "posture": "zigzag"
+  },
+  {
+   "id": "crossed",
+   "phrase": "two antennae crossing over each other above the head",
+   "posture": "crossed"
+  },
+  {
+   "id": "one-up",
+   "phrase": "one antenna straight up and one curled down",
+   "posture": "asymmetric"
+  },
+  {
+   "id": "spiral",
+   "phrase": "two loose spiral antennae like unwound springs",
+   "posture": "spiral"
+  },
+  {
+   "id": "forked",
+   "phrase": "two antennae that each split into a small fork near the tip",
+   "posture": "forked"
+  },
+  {
+   "id": "swept-back",
+   "phrase": "swept back over the skull as if caught in a permanent headwind"
+  },
+  {
+   "id": "swept-forward",
+   "phrase": "raked forward over the brow, leaning out ahead of the face"
+  },
+  {
+   "id": "floppy-tips",
+   "phrase": "upright for most of their height, then flopping over in the top third"
+  },
+  {
+   "id": "shepherds-crook",
+   "phrase": "a pair that rises tall and then bends right over at the top into a shepherd's crook"
+  },
+  {
+   "id": "fiddlehead",
+   "phrase": "curling in at the ends like two young fern fronds not yet unrolled"
+  },
+  {
+   "id": "s-curve",
+   "phrase": "rippling from base to tip in a lazy S"
+  },
+  {
+   "id": "elbowed",
+   "phrase": "two stalks with a sharp elbow halfway up, like bent drinking straws"
+  },
+  {
+   "id": "tapered-fine",
+   "phrase": "thick at the base and tapering away to a hair-fine point"
+  },
+  {
+   "id": "rope-thick",
+   "phrase": "the same chunky thickness the whole way up, like two short lengths of rope"
+  },
+  {
+   "id": "beaded",
+   "phrase": "segmented into little stacked beads, two short strings of pearls standing on end"
+  },
+  {
+   "id": "bamboo",
+   "phrase": "jointed at regular intervals like two stalks of bamboo"
+  },
+  {
+   "id": "twisted-pair",
+   "phrase": "wound around one another in a loose double helix, parting again near the top"
+  },
+  {
+   "id": "corkscrew",
+   "phrase": "drilled into corkscrews that widen as they rise"
+  },
+  {
+   "id": "single-loop",
+   "phrase": "each tied into one neat round loop partway up before carrying on"
+  },
+  {
+   "id": "pretzel",
+   "phrase": "looped over and through each other into something not far off a pretzel"
+  },
+  {
+   "id": "heart-lean",
+   "phrase": "leaning together until their curves meet at the top in a rough heart shape"
+  },
+  {
+   "id": "antlered",
+   "phrase": "branched like miniature antlers, three small prongs on each side"
+  },
+  {
+   "id": "wide-v",
+   "phrase": "flared apart into a wide open V"
+  },
+  {
+   "id": "narrow-v",
+   "phrase": "a tight narrow V, nearly touching at the base and parting only at the very top"
+  },
+  {
+   "id": "parallel-lean",
+   "phrase": "both leaning the same way, exactly parallel, as if listening to something off to the left"
+  },
+  {
+   "id": "one-fore-one-aft",
+   "phrase": "one thrown forward over the face and the other flung back behind the head"
+  },
+  {
+   "id": "periscope-bend",
+   "phrase": "rising straight and then bending square at the top to point forward, two little periscopes"
+  },
+  {
+   "id": "shrug",
+   "phrase": "held out sideways and slightly up, in the exact shape of a shrug"
+  },
+  {
+   "id": "limp-hang",
+   "phrase": "hanging limp down either side of the head with no lift in them at all"
+  },
+  {
+   "id": "one-flopped",
+   "phrase": "one held smartly upright while the other has flopped over entirely"
+  },
+  {
+   "id": "wilting",
+   "phrase": "starting upright and wilting over halfway, two unwatered stems"
+  },
+  {
+   "id": "nubs",
+   "phrase": "barely antennae at all, just two little nubs pressed into the crown"
+  },
+  {
+   "id": "towering",
+   "phrase": "absurdly long, standing taller than the head itself"
+  },
+  {
+   "id": "wire-thin",
+   "phrase": "thin as wire and visibly wobbly, as though a breath would move them"
+  },
+  {
+   "id": "fence-post",
+   "phrase": "thick and sturdy, planted like two fence posts"
+  },
+  {
+   "id": "far-apart",
+   "phrase": "set unusually far apart, sprouting from the outer corners of the crown"
+  },
+  {
+   "id": "shared-root",
+   "phrase": "sprouting so close together that they share one thick root of clay"
+  },
+  {
+   "id": "brow-set",
+   "phrase": "growing low from the front of the head rather than up on the crown"
+  },
+  {
+   "id": "nape-set",
+   "phrase": "set far back on the skull, nearly at the nape"
+  },
+  {
+   "id": "staggered-roots",
+   "phrase": "planted at different heights, one high on the crown and one down by the temple"
+  },
+  {
+   "id": "cocked-right",
+   "phrase": "both cocked over at the same jaunty angle to the right"
+  },
+  {
+   "id": "rigid",
+   "phrase": "held rigid and perfectly vertical, without a single bend in either"
+  },
+  {
+   "id": "curious-tilt",
+   "phrase": "tilted forward and slightly inward, aimed squarely at whatever has its attention"
+  },
+  {
+   "id": "startled-flare",
+   "phrase": "flung out and up in a sharp V, as if it has just heard a bang"
+  },
+  {
+   "id": "asleep",
+   "phrase": "folded flat along the top of the head, tucked away as if asleep"
+  },
+  {
+   "id": "mid-flick",
+   "phrase": "caught mid-flick, both stalks bent hard over to one side"
+  },
+  {
+   "id": "mid-wobble",
+   "phrase": "frozen mid-wobble, each bowed a different way"
+  },
+  {
+   "id": "quivering",
+   "phrase": "held in a tight quiver, bent back a little and about to spring"
+  },
+  {
+   "id": "one-twitching",
+   "phrase": "one twitching backward while the other holds perfectly still"
+  },
+  {
+   "id": "recoil",
+   "phrase": "bowed backwards at the top, as though the head has just stopped short"
+  },
+  {
+   "id": "tangled",
+   "phrase": "hopelessly tangled around each other and never properly sorted out"
+  },
+  {
+   "id": "threaded",
+   "phrase": "one stalk threaded straight through a loop made by the other"
+  },
+  {
+   "id": "crossed-low",
+   "phrase": "crossing low down near the base and splaying wide apart above"
+  },
+  {
+   "id": "scissored",
+   "phrase": "open like a pair of scissors, two straight arms angled apart from one crossing point"
+  },
+  {
+   "id": "tuning-fork",
+   "phrase": "two perfectly parallel prongs, a tuning fork standing on the head"
+  },
+  {
+   "id": "ladder",
+   "phrase": "two upright stalks joined by three small crossbars between them"
+  },
+  {
+   "id": "arched-handle",
+   "phrase": "two stalks meeting at the top in one continuous arch, like a carrying handle"
+  },
+  {
+   "id": "tied-band",
+   "phrase": "bound together near the ends by a small band of clay"
+  },
+  {
+   "id": "late-split",
+   "phrase": "one thick stalk from the crown that splits into two only near the top"
+  },
+  {
+   "id": "four-count",
+   "phrase": "four short antennae in two neat pairs, one pair behind the other"
+  },
+  {
+   "id": "solo",
+   "phrase": "reduced to a single stout stalk rising dead centre from the crown"
+  },
+  {
+   "id": "trio",
+   "phrase": "three stalks instead of two, the middle one shorter than its neighbours"
+  },
+  {
+   "id": "broken-bandaged",
+   "phrase": "a matched pair except the left one is snapped halfway and bound with a little clay bandage"
+  },
+  {
+   "id": "splinted",
+   "phrase": "one sound stalk and one splinted with a tiny clay stick and a wrapping"
+  },
+  {
+   "id": "stump",
+   "phrase": "one full-length stalk and one blunt stump where the other broke off"
+  },
+  {
+   "id": "mended-seam",
+   "phrase": "a pair with one of them mended in the middle by a visible seam of paler clay"
+  },
+  {
+   "id": "mismatched-thickness",
+   "phrase": "one thin as thread and the other fat as a finger"
+  },
+  {
+   "id": "mismatched-length",
+   "phrase": "wildly mismatched, one a good twice the length of the other"
+  },
+  {
+   "id": "tucked-behind",
+   "phrase": "one standing up smartly and the other folded back behind the head, out of the way"
+  },
+  {
+   "id": "knotted",
+   "phrase": "tied loosely together in a single soft knot above the crown"
+  },
+  {
+   "id": "braided",
+   "phrase": "braided into one thick plait that unravels back into two near the ends"
+  },
+  {
+   "id": "bowed-tie",
+   "phrase": "knotted into a small clumsy bow above the head"
+  },
+  {
+   "id": "curled-under",
+   "phrase": "curling under and inward until the ends point back down at the head"
+  },
+  {
+   "id": "tips-touching",
+   "phrase": "hooked inward at the top so the two ends very nearly meet"
+  },
+  {
+   "id": "tips-outward",
+   "phrase": "hooking outward at the top, turning firmly away from each other"
+  },
+  {
+   "id": "flat-spiral",
+   "phrase": "each wound into a flat coil lying against the side of the head like a snail shell"
+  },
+  {
+   "id": "stretched-spring",
+   "phrase": "coiled but pulled long, the spring stretched most of the way open"
+  },
+  {
+   "id": "half-coiled",
+   "phrase": "coiled tight for the lower half and running dead straight for the upper half"
+  },
+  {
+   "id": "thumb-rolled",
+   "phrase": "roughly rolled between finger and thumb, uneven and lumpy along their length"
+  },
+  {
+   "id": "ribbon-flat",
+   "phrase": "flattened into two thin ribbons rather than round stalks"
+  },
+  {
+   "id": "square-section",
+   "phrase": "squared off in section, two little clay posts with visible edges"
+  },
+  {
+   "id": "club-swell",
+   "phrase": "narrow at the base and swelling to a club near the top"
+  },
+  {
+   "id": "knobbly",
+   "phrase": "knobbly and uneven, as though rolled in a hurry"
+  },
+  {
+   "id": "thumbprint-base",
+   "phrase": "two plain stalks with a clear thumbprint pressed into the clay at each base"
+  },
+  {
+   "id": "banded",
+   "phrase": "banded along their length with alternating rings of darker clay"
+  },
+  {
+   "id": "furred",
+   "phrase": "furred with a dozen tiny clay hairs along each stalk"
+  },
+  {
+   "id": "bristled",
+   "phrase": "bristling with small spikes down both sides"
+  },
+  {
+   "id": "one-socket",
+   "phrase": "a lone stalk beside a small empty socket where its partner should be"
+  },
+  {
+   "id": "brow-low",
+   "phrase": "set so low and lying so flat they could be mistaken for a pair of raised eyebrows"
+  },
+  {
+   "id": "drumsticks",
+   "phrase": "held out ahead like a pair of drumsticks about to strike"
+  },
+  {
+   "id": "up-and-down",
+   "phrase": "one pointing straight up and the other straight down along the cheek"
+  }
+ ],
+ "antenna_tip": [
+  {
+   "id": "ball",
+   "phrase": "tipped with a soft round ball",
+   "taken_by": "Honey"
+  },
+  {
+   "id": "eyeball",
+   "phrase": "tipped with a small extra eyeball",
+   "taken_by": "Bumble"
+  },
+  {
+   "id": "hexagon",
+   "phrase": "tipped with a flat six-sided honeycomb cell",
+   "taken_by": "Hive"
+  },
+  {
+   "id": "coin",
+   "phrase": "tipped with a flat pale disc like a coin",
+   "taken_by": "Nectar"
+  },
+  {
+   "id": "bar",
+   "phrase": "tipped with a small flat horizontal bar",
+   "taken_by": "Comb"
+  },
+  {
+   "id": "bell",
+   "phrase": "tipped with a small hanging bell",
+   "taken_by": "Jelly"
+  },
+  {
+   "id": "teardrop",
+   "phrase": "tipped with a teardrop of ink about to fall",
+   "taken_by": null
+  },
+  {
+   "id": "pan",
+   "phrase": "tipped with a small flat pan, the two antennae forming a balance",
+   "taken_by": null
+  },
+  {
+   "id": "lamp",
+   "phrase": "tipped with a small lit lamp",
+   "taken_by": null
+  },
+  {
+   "id": "anvil",
+   "phrase": "tipped with a tiny black anvil, horn pointing forward"
+  },
+  {
+   "id": "hammer",
+   "phrase": "tipped with the blunt head of a small hammer"
+  },
+  {
+   "id": "key",
+   "phrase": "tipped with a fat old-fashioned key hanging by its bow"
+  },
+  {
+   "id": "padlock",
+   "phrase": "tipped with a small closed padlock"
+  },
+  {
+   "id": "spanner",
+   "phrase": "tipped with the open jaw of a stubby spanner"
+  },
+  {
+   "id": "trowel",
+   "phrase": "tipped with a little pointed trowel, blade upward"
+  },
+  {
+   "id": "magnet",
+   "phrase": "tipped with a chunky horseshoe magnet, ends down"
+  },
+  {
+   "id": "horseshoe",
+   "phrase": "tipped with a small horseshoe hung open end up"
+  },
+  {
+   "id": "plumb-bob",
+   "phrase": "tipped with a heavy plumb bob hanging point-down"
+  },
+  {
+   "id": "paintbrush",
+   "phrase": "tipped with a short paintbrush standing bristles-up"
+  },
+  {
+   "id": "paint-blob",
+   "phrase": "tipped with a fat wet blob of paint about to run"
+  },
+  {
+   "id": "pencil-stub",
+   "phrase": "tipped with a stubby worn-down pencil"
+  },
+  {
+   "id": "spool",
+   "phrase": "tipped with a wound spool of thread"
+  },
+  {
+   "id": "thimble",
+   "phrase": "tipped with a dimpled thimble sitting like a hat"
+  },
+  {
+   "id": "acorn",
+   "phrase": "tipped with a fat acorn sitting in its rough cup"
+  },
+  {
+   "id": "pinecone",
+   "phrase": "tipped with a small closed pinecone"
+  },
+  {
+   "id": "leaf",
+   "phrase": "tipped with one broad simple leaf"
+  },
+  {
+   "id": "flower-bud",
+   "phrase": "tipped with a tight unopened flower bud"
+  },
+  {
+   "id": "sunflower",
+   "phrase": "tipped with a heavy sunflower head nodding forward"
+  },
+  {
+   "id": "seedling",
+   "phrase": "tipped with a seedling sprouting two round leaves"
+  },
+  {
+   "id": "cactus",
+   "phrase": "tipped with a small two-armed cactus"
+  },
+  {
+   "id": "toadstool",
+   "phrase": "tipped with a domed spotted toadstool"
+  },
+  {
+   "id": "apple",
+   "phrase": "tipped with a small round apple with one leaf"
+  },
+  {
+   "id": "cherries",
+   "phrase": "tipped with a pair of cherries on a short joined stem"
+  },
+  {
+   "id": "carrot",
+   "phrase": "tipped with a stubby carrot pointing down"
+  },
+  {
+   "id": "doughnut",
+   "phrase": "tipped with a small ring doughnut"
+  },
+  {
+   "id": "cupcake",
+   "phrase": "tipped with a little cupcake with a swirl of icing"
+  },
+  {
+   "id": "ice-cream",
+   "phrase": "tipped with a single scoop of ice cream on a cone"
+  },
+  {
+   "id": "honeypot",
+   "phrase": "tipped with a small round pot of honey"
+  },
+  {
+   "id": "cheese-wedge",
+   "phrase": "tipped with a wedge of cheese, wide end up"
+  },
+  {
+   "id": "pumpkin",
+   "phrase": "tipped with a small ribbed pumpkin"
+  },
+  {
+   "id": "cube",
+   "phrase": "tipped with a neat solid cube resting on one corner"
+  },
+  {
+   "id": "pyramid",
+   "phrase": "tipped with a small four-sided pyramid"
+  },
+  {
+   "id": "cone",
+   "phrase": "tipped with a smooth cone pointing straight up"
+  },
+  {
+   "id": "crystal",
+   "phrase": "tipped with a chunky faceted crystal"
+  },
+  {
+   "id": "star",
+   "phrase": "tipped with a fat five-pointed star"
+  },
+  {
+   "id": "heart",
+   "phrase": "tipped with a small solid heart"
+  },
+  {
+   "id": "cloud",
+   "phrase": "tipped with a small puffy cloud"
+  },
+  {
+   "id": "raindrop",
+   "phrase": "tipped with one fat raindrop hanging heavy"
+  },
+  {
+   "id": "sun",
+   "phrase": "tipped with a small sun disc ringed with stubby rays"
+  },
+  {
+   "id": "lightning",
+   "phrase": "tipped with a thick zigzag lightning bolt"
+  },
+  {
+   "id": "flame",
+   "phrase": "tipped with a small steady flame"
+  },
+  {
+   "id": "icicle",
+   "phrase": "tipped with a short blunt icicle pointing down"
+  },
+  {
+   "id": "rainbow",
+   "phrase": "tipped with a stubby banded arc of rainbow"
+  },
+  {
+   "id": "crescent-moon",
+   "phrase": "tipped with a thick crescent moon lying on its back"
+  },
+  {
+   "id": "ringed-planet",
+   "phrase": "tipped with a little planet wearing a flat ring"
+  },
+  {
+   "id": "anchor",
+   "phrase": "tipped with a small anchor hanging by its ring"
+  },
+  {
+   "id": "seashell",
+   "phrase": "tipped with a smooth spiral seashell"
+  },
+  {
+   "id": "starfish",
+   "phrase": "tipped with a five-armed starfish held flat"
+  },
+  {
+   "id": "fish",
+   "phrase": "tipped with a small plump fish balanced nose-up"
+  },
+  {
+   "id": "whale-tail",
+   "phrase": "tipped with a little whale tail flicking upward"
+  },
+  {
+   "id": "lighthouse",
+   "phrase": "tipped with a stubby banded lighthouse"
+  },
+  {
+   "id": "sail",
+   "phrase": "tipped with a small triangular sail catching the wind"
+  },
+  {
+   "id": "life-ring",
+   "phrase": "tipped with a small life ring"
+  },
+  {
+   "id": "rope-knot",
+   "phrase": "tipped with a fat tied knot of rope"
+  },
+  {
+   "id": "snail",
+   "phrase": "tipped with a small snail carrying its coiled shell"
+  },
+  {
+   "id": "ladybird",
+   "phrase": "tipped with a round spotted ladybird"
+  },
+  {
+   "id": "tiny-bee",
+   "phrase": "tipped with a tiny bee of its own, wings out"
+  },
+  {
+   "id": "butterfly",
+   "phrase": "tipped with a butterfly holding its wings open"
+  },
+  {
+   "id": "caterpillar",
+   "phrase": "tipped with a fat caterpillar curled round the stalk"
+  },
+  {
+   "id": "frog",
+   "phrase": "tipped with a small squat frog sitting still"
+  },
+  {
+   "id": "bird",
+   "phrase": "tipped with a small round perching bird"
+  },
+  {
+   "id": "mouse",
+   "phrase": "tipped with a tiny mouse clinging on with both paws"
+  },
+  {
+   "id": "feather",
+   "phrase": "tipped with one soft feather standing upright"
+  },
+  {
+   "id": "nest",
+   "phrase": "tipped with a tiny nest holding two eggs"
+  },
+  {
+   "id": "drum",
+   "phrase": "tipped with a little round drum on its side"
+  },
+  {
+   "id": "trumpet-bell",
+   "phrase": "tipped with the flared bell of a trumpet"
+  },
+  {
+   "id": "maraca",
+   "phrase": "tipped with a fat maraca, handle down"
+  },
+  {
+   "id": "tuning-fork",
+   "phrase": "tipped with a two-pronged tuning fork"
+  },
+  {
+   "id": "horn",
+   "phrase": "tipped with a curled ram's horn"
+  },
+  {
+   "id": "bucket",
+   "phrase": "tipped with a tiny bucket swinging from its handle"
+  },
+  {
+   "id": "teapot",
+   "phrase": "tipped with a squat round teapot"
+  },
+  {
+   "id": "teacup",
+   "phrase": "tipped with a little teacup sitting on a saucer"
+  },
+  {
+   "id": "spoon",
+   "phrase": "tipped with a round-bowled spoon, bowl upward"
+  },
+  {
+   "id": "bottle",
+   "phrase": "tipped with a stout little bottle stopped with a cork"
+  },
+  {
+   "id": "candle",
+   "phrase": "tipped with a short fat candle, unlit"
+  },
+  {
+   "id": "umbrella",
+   "phrase": "tipped with a small tightly furled umbrella"
+  },
+  {
+   "id": "basket",
+   "phrase": "tipped with a little woven basket"
+  },
+  {
+   "id": "sack",
+   "phrase": "tipped with a small sack tied at the neck"
+  },
+  {
+   "id": "barrel",
+   "phrase": "tipped with a squat banded barrel"
+  },
+  {
+   "id": "mitten",
+   "phrase": "tipped with a small woollen mitten"
+  },
+  {
+   "id": "balloon",
+   "phrase": "tipped with a small taut balloon"
+  },
+  {
+   "id": "spinning-top",
+   "phrase": "tipped with a fat spinning top, point down"
+  },
+  {
+   "id": "pawn",
+   "phrase": "tipped with a little chess pawn"
+  },
+  {
+   "id": "shield",
+   "phrase": "tipped with a small rounded shield"
+  },
+  {
+   "id": "arrowhead",
+   "phrase": "tipped with a broad flat arrowhead"
+  },
+  {
+   "id": "pennant",
+   "phrase": "tipped with a small plain pennant flag"
+  },
+  {
+   "id": "crown-tip",
+   "phrase": "tipped with a tiny blunt-pointed crown"
+  },
+  {
+   "id": "beehive",
+   "phrase": "tipped with a little domed straw beehive"
+  },
+  {
+   "id": "watering-can",
+   "phrase": "tipped with a tiny watering can, spout out"
+  },
+  {
+   "id": "flowerpot",
+   "phrase": "tipped with a small empty terracotta flowerpot"
+  }
+ ],
+ "headwear": [
+  {
+   "id": "none",
+   "phrase": ""
+  },
+  {
+   "id": "beanie",
+   "phrase": "wearing a small knitted beanie pulled down over the head"
+  },
+  {
+   "id": "flat-cap",
+   "phrase": "wearing a flat cap tilted to one side"
+  },
+  {
+   "id": "bucket-hat",
+   "phrase": "wearing a soft bucket hat with a droopy brim"
+  },
+  {
+   "id": "headband",
+   "phrase": "wearing a thin headband across the forehead"
+  },
+  {
+   "id": "bandana",
+   "phrase": "wearing a bandana tied over the top of the head"
+  },
+  {
+   "id": "cowboy",
+   "phrase": "wearing a wide-brimmed cowboy hat"
+  },
+  {
+   "id": "beret",
+   "phrase": "wearing a soft beret worn at an angle"
+  },
+  {
+   "id": "top-hat",
+   "phrase": "wearing a tall black top hat"
+  },
+  {
+   "id": "party-hat",
+   "phrase": "wearing a small conical party hat"
+  },
+  {
+   "id": "crown",
+   "phrase": "wearing a tiny gold crown"
+  },
+  {
+   "id": "pirate",
+   "phrase": "wearing a pirate tricorn hat"
+  },
+  {
+   "id": "wizard",
+   "phrase": "wearing a pointed wizard hat with stars"
+  },
+  {
+   "id": "baseball-cap",
+   "phrase": "wearing a baseball cap worn forwards"
+  },
+  {
+   "id": "cap-backwards",
+   "phrase": "wearing a baseball cap worn backwards"
+  },
+  {
+   "id": "sweatband",
+   "phrase": "wearing a towelling sweatband across the forehead"
+  },
+  {
+   "id": "cycling-helmet",
+   "phrase": "wearing a slim cycling helmet"
+  },
+  {
+   "id": "ski-hat",
+   "phrase": "wearing a bobble hat with a pom-pom on top"
+  },
+  {
+   "id": "swim-cap",
+   "phrase": "wearing a smooth silicone swim cap"
+  },
+  {
+   "id": "chef",
+   "phrase": "wearing a tall white chef's toque"
+  },
+  {
+   "id": "hard-hat",
+   "phrase": "wearing a yellow hard hat"
+  },
+  {
+   "id": "deerstalker",
+   "phrase": "wearing a deerstalker with the ear flaps down"
+  },
+  {
+   "id": "mortarboard",
+   "phrase": "wearing a graduation mortarboard with a tassel"
+  },
+  {
+   "id": "nurse-cap",
+   "phrase": "wearing a small white nurse's cap"
+  },
+  {
+   "id": "sailor",
+   "phrase": "wearing a white sailor's cap"
+  },
+  {
+   "id": "visor",
+   "phrase": "wearing a sun visor with an open top"
+  },
+  {
+   "id": "earmuffs",
+   "phrase": "wearing fluffy earmuffs over the sides of the head"
+  },
+  {
+   "id": "flower-crown",
+   "phrase": "wearing a ring of small clay flowers"
+  },
+  {
+   "id": "propeller",
+   "phrase": "wearing a beanie with a little propeller on top"
+  },
+  {
+   "id": "souwester",
+   "phrase": "wearing a yellow oilskin rain hat with a long brim sweeping down the back"
+  },
+  {
+   "id": "parka-hood",
+   "phrase": "wearing a fur-trimmed parka hood pushed back so it rings the head"
+  },
+  {
+   "id": "snow-cap",
+   "phrase": "wearing a soft cap of settled snow that has drifted onto the crown"
+  },
+  {
+   "id": "umbrella-hat",
+   "phrase": "wearing a tiny striped umbrella opened above the head on a short stem"
+  },
+  {
+   "id": "ushanka",
+   "phrase": "wearing a thick fur winter hat with the ear flaps tied up on top"
+  },
+  {
+   "id": "winter-scarf",
+   "phrase": "wearing a long woollen scarf wound up over the head and around the ears"
+  },
+  {
+   "id": "straw-sun-hat",
+   "phrase": "wearing a wide floppy straw sun hat with a frayed brim"
+  },
+  {
+   "id": "football-helmet",
+   "phrase": "wearing a gridiron football helmet with a single bar across the front"
+  },
+  {
+   "id": "hockey-helmet",
+   "phrase": "wearing an ice hockey helmet with a wire cage over the face"
+  },
+  {
+   "id": "jockey-cap",
+   "phrase": "wearing a glossy silk jockey cap with a tiny stiff peak"
+  },
+  {
+   "id": "boxing-headgear",
+   "phrase": "wearing padded boxing headgear that leaves the top of the head open"
+  },
+  {
+   "id": "fencing-mask",
+   "phrase": "wearing a fencing mask with a fine mesh front and a bib at the neck"
+  },
+  {
+   "id": "racing-helmet",
+   "phrase": "wearing a smooth racing helmet with the visor flipped up and a pair of small vents at the crown"
+  },
+  {
+   "id": "climbing-helmet",
+   "phrase": "wearing a scuffed climbing helmet with a small torch clipped to the front"
+  },
+  {
+   "id": "scrum-cap",
+   "phrase": "wearing a soft padded rugby scrum cap strapped under the chin"
+  },
+  {
+   "id": "firefighter-helmet",
+   "phrase": "wearing a firefighter's helmet with a long flap hanging over the neck"
+  },
+  {
+   "id": "pilot-cap",
+   "phrase": "wearing an airline pilot's peaked cap with a braided band"
+  },
+  {
+   "id": "railway-cap",
+   "phrase": "wearing a striped railway engineer's cap with a soft crown"
+  },
+  {
+   "id": "welding-mask",
+   "phrase": "wearing a welding mask flipped up onto the forehead"
+  },
+  {
+   "id": "miner-helmet",
+   "phrase": "wearing a miner's helmet with a little round lamp on the front"
+  },
+  {
+   "id": "beekeeper-hat",
+   "phrase": "wearing a broad beekeeper's hat with the veil folded up out of the way"
+  },
+  {
+   "id": "scrub-cap",
+   "phrase": "wearing a surgical scrub cap gathered into a knot at the back"
+  },
+  {
+   "id": "court-wig",
+   "phrase": "wearing a short curled grey courtroom wig"
+  },
+  {
+   "id": "ranger-hat",
+   "phrase": "wearing a stiff-brimmed park ranger's hat with a pinched crown"
+  },
+  {
+   "id": "diving-helmet",
+   "phrase": "wearing a heavy brass diving helmet with a round glass port at the front and two neat holes for the antennae"
+  },
+  {
+   "id": "space-helmet",
+   "phrase": "wearing a white space helmet with a clear bubble visor and two small ports on top"
+  },
+  {
+   "id": "gardening-hat",
+   "phrase": "wearing a battered gardening hat with soil marks around the band"
+  },
+  {
+   "id": "bicorne",
+   "phrase": "wearing a bicorne hat set sideways across the head"
+  },
+  {
+   "id": "crested-helmet",
+   "phrase": "wearing a bronze helmet with a stiff brush crest running front to back"
+  },
+  {
+   "id": "knight-helm",
+   "phrase": "wearing a rounded knight's helm with the visor propped open and two slots cut in the crown"
+  },
+  {
+   "id": "horned-helmet",
+   "phrase": "wearing a domed metal helmet with a blunt horn on each side"
+  },
+  {
+   "id": "bonnet",
+   "phrase": "wearing a frilled cloth bonnet tied in a bow under the chin"
+  },
+  {
+   "id": "newsboy",
+   "phrase": "wearing a rounded newsboy cap with a button at the very top"
+  },
+  {
+   "id": "boater",
+   "phrase": "wearing a stiff straw boater with a flat top and a ribbon band"
+  },
+  {
+   "id": "panama",
+   "phrase": "wearing a cream panama hat with a dark band and a rolled brim"
+  },
+  {
+   "id": "fedora",
+   "phrase": "wearing a felt fedora with a deeply pinched crown"
+  },
+  {
+   "id": "bowler",
+   "phrase": "wearing a hard black bowler hat with a curled brim"
+  },
+  {
+   "id": "chullo",
+   "phrase": "wearing a knitted earflap hat with long braided ties hanging down"
+  },
+  {
+   "id": "tam-o-shanter",
+   "phrase": "wearing a woollen tam o' shanter flopping to one side"
+  },
+  {
+   "id": "alpine-hat",
+   "phrase": "wearing a green felt alpine hat with a small feather at the side"
+  },
+  {
+   "id": "conical-straw",
+   "phrase": "wearing a wide conical straw field hat, flat and shallow"
+  },
+  {
+   "id": "doughnut",
+   "phrase": "wearing a pink iced doughnut balanced flat on the head"
+  },
+  {
+   "id": "cupcake",
+   "phrase": "wearing a cupcake as a hat, the frosting swirled up into a peak"
+  },
+  {
+   "id": "watermelon-rind",
+   "phrase": "wearing a curved slice of watermelon rind as a dome"
+  },
+  {
+   "id": "fried-egg",
+   "phrase": "wearing a floppy fried egg draped over the top of the head"
+  },
+  {
+   "id": "pea-pod",
+   "phrase": "wearing an open pea pod tipped upside down with the peas showing"
+  },
+  {
+   "id": "pancake-stack",
+   "phrase": "wearing a short stack of pancakes with syrup running down the sides"
+  },
+  {
+   "id": "acorn-cap",
+   "phrase": "wearing an acorn cap that fits the crown of the head exactly"
+  },
+  {
+   "id": "mushroom-cap",
+   "phrase": "wearing a red mushroom cap with pale spots"
+  },
+  {
+   "id": "cat-ears",
+   "phrase": "wearing a headband with two soft pointed cat ears"
+  },
+  {
+   "id": "bear-ears",
+   "phrase": "wearing a fleece hood with two small round bear ears"
+  },
+  {
+   "id": "rabbit-ears",
+   "phrase": "wearing a cap with two long rabbit ears, one flopping over"
+  },
+  {
+   "id": "frog-hat",
+   "phrase": "wearing a green frog hat with two big domed eyes on top"
+  },
+  {
+   "id": "dino-hood",
+   "phrase": "wearing a hood with a row of soft spikes running down the middle"
+  },
+  {
+   "id": "traffic-cone",
+   "phrase": "wearing a small orange traffic cone tipped over the head"
+  },
+  {
+   "id": "teapot",
+   "phrase": "wearing a little teapot upside down, spout pointing off to one side"
+  },
+  {
+   "id": "lampshade",
+   "phrase": "wearing a fringed lampshade tilted rakishly over one side"
+  },
+  {
+   "id": "flowerpot",
+   "phrase": "wearing a terracotta flowerpot with a single sprout poking out"
+  },
+  {
+   "id": "birds-nest",
+   "phrase": "wearing a twig nest with two tiny speckled eggs in it"
+  },
+  {
+   "id": "snail",
+   "phrase": "wearing a snail that has settled on the head, shell and all"
+  },
+  {
+   "id": "clay-lump",
+   "phrase": "wearing an unworked lump of clay pressed on like a hat"
+  },
+  {
+   "id": "headscarf",
+   "phrase": "wearing a patterned cotton headscarf knotted at the back"
+  },
+  {
+   "id": "head-wrap",
+   "phrase": "wearing a bright fabric head wrap twisted into a knot at the front"
+  },
+  {
+   "id": "towel-turban",
+   "phrase": "wearing a bath towel twisted up into a tall coil"
+  },
+  {
+   "id": "shower-cap",
+   "phrase": "wearing a puffy plastic shower cap gathered with elastic"
+  },
+  {
+   "id": "autumn-leaf",
+   "phrase": "wearing a single broad red autumn leaf laid flat on the head"
+  },
+  {
+   "id": "paper-boat",
+   "phrase": "wearing a folded paper boat balanced on the crown"
+  },
+  {
+   "id": "book-stack",
+   "phrase": "wearing a small stack of three books balanced flat on the head"
+  },
+  {
+   "id": "single-feather",
+   "phrase": "wearing one tall feather tucked into a thin band"
+  },
+  {
+   "id": "butterfly",
+   "phrase": "wearing a butterfly that has landed on the head with its wings open"
+  },
+  {
+   "id": "moss-patch",
+   "phrase": "wearing a patch of soft green moss growing across the top of the head"
+  }
+ ],
+ "glasses": [
+  {
+   "id": "none",
+   "phrase": ""
+  },
+  {
+   "id": "round",
+   "phrase": "wearing small round wire-rim spectacles"
+  },
+  {
+   "id": "square",
+   "phrase": "wearing thick square-framed glasses"
+  },
+  {
+   "id": "sunglasses",
+   "phrase": "wearing dark sunglasses"
+  },
+  {
+   "id": "half-moon",
+   "phrase": "wearing half-moon reading glasses low on the nose"
+  },
+  {
+   "id": "goggles",
+   "phrase": "wearing round goggles pushed up onto the forehead"
+  },
+  {
+   "id": "oval-wire",
+   "phrase": "wearing thin oval wire spectacles that leave the eyes plainly visible"
+  },
+  {
+   "id": "rectangle",
+   "phrase": "wearing narrow rectangular glasses with straight heavy top bars"
+  },
+  {
+   "id": "cat-eye",
+   "phrase": "wearing cat-eye frames sweeping up at the outer corners"
+  },
+  {
+   "id": "browline",
+   "phrase": "wearing browline glasses with a thick top bar and bare wire beneath"
+  },
+  {
+   "id": "aviator",
+   "phrase": "wearing teardrop aviator frames with lenses too dark to see through"
+  },
+  {
+   "id": "octagon",
+   "phrase": "wearing eight-sided lenses in slim flat-edged frames"
+  },
+  {
+   "id": "hexagon-frames",
+   "phrase": "wearing hexagonal frames with sharply cut corners"
+  },
+  {
+   "id": "tiny-round",
+   "phrase": "wearing comically tiny round lenses far too small for the eyes behind them"
+  },
+  {
+   "id": "oversized",
+   "phrase": "wearing enormous square frames covering half the face"
+  },
+  {
+   "id": "giant-lenses",
+   "phrase": "wearing lenses the size of saucers, the eyes floating small in the middle"
+  },
+  {
+   "id": "tiny-square",
+   "phrase": "wearing minute square lenses barely wider than the pupils"
+  },
+  {
+   "id": "narrow-slit",
+   "phrase": "wearing very narrow slit lenses showing only a sliver of each eye"
+  },
+  {
+   "id": "tall-lenses",
+   "phrase": "wearing tall narrow lenses running from brow to cheek"
+  },
+  {
+   "id": "round-and-square",
+   "phrase": "wearing glasses with one round lens and one square one"
+  },
+  {
+   "id": "lopsided-lenses",
+   "phrase": "wearing glasses with one lens noticeably larger than the other"
+  },
+  {
+   "id": "star-lenses",
+   "phrase": "wearing glasses with blunt star-shaped lenses"
+  },
+  {
+   "id": "heart-lenses",
+   "phrase": "wearing heart-shaped lenses in soft pink frames"
+  },
+  {
+   "id": "keyhole-bridge",
+   "phrase": "wearing round frames joined by a keyhole-shaped bridge"
+  },
+  {
+   "id": "double-bridge",
+   "phrase": "wearing frames with two bars crossing the bridge of the nose"
+  },
+  {
+   "id": "nose-pads",
+   "phrase": "wearing wire glasses with two little pads pressed into the nose"
+  },
+  {
+   "id": "thick-arms",
+   "phrase": "wearing glasses with unusually thick arms running back past the cheeks"
+  },
+  {
+   "id": "rimless",
+   "phrase": "wearing rimless lenses held by two thin arms, the eyes quite clear behind"
+  },
+  {
+   "id": "semi-rimless",
+   "phrase": "wearing semi-rimless glasses framed only along the top edge"
+  },
+  {
+   "id": "wire-thin",
+   "phrase": "wearing spectacles of wire so fine they almost vanish against the clay"
+  },
+  {
+   "id": "gold-wire",
+   "phrase": "wearing fine gold wire spectacles with small round lenses"
+  },
+  {
+   "id": "silver-wire",
+   "phrase": "wearing plain silver wire glasses with a straight flat bridge"
+  },
+  {
+   "id": "copper-wire",
+   "phrase": "wearing copper wire frames gone faintly green with age"
+  },
+  {
+   "id": "tortoiseshell",
+   "phrase": "wearing mottled tortoiseshell frames in brown and amber clay"
+  },
+  {
+   "id": "horn-rim",
+   "phrase": "wearing heavy black horn-rimmed glasses"
+  },
+  {
+   "id": "wooden",
+   "phrase": "wearing chunky spectacles carved from pale wood"
+  },
+  {
+   "id": "red-plastic",
+   "phrase": "wearing bright red plastic frames"
+  },
+  {
+   "id": "yellow-plastic",
+   "phrase": "wearing sunny yellow frames a shade too wide for the head"
+  },
+  {
+   "id": "blue-plastic",
+   "phrase": "wearing chunky cobalt blue frames"
+  },
+  {
+   "id": "white-frames",
+   "phrase": "wearing crisp white frames standing out hard against the clay"
+  },
+  {
+   "id": "two-tone",
+   "phrase": "wearing frames dark along the top and pale underneath"
+  },
+  {
+   "id": "speckled",
+   "phrase": "wearing frames flecked all over with tiny darker specks"
+  },
+  {
+   "id": "striped-arms",
+   "phrase": "wearing plain frames with candy-striped arms"
+  },
+  {
+   "id": "rose-tint",
+   "phrase": "wearing round glasses with soft rose-tinted lenses, the eyes warm behind them"
+  },
+  {
+   "id": "amber-tint",
+   "phrase": "wearing amber-tinted lenses that turn the eyes golden"
+  },
+  {
+   "id": "blue-tint",
+   "phrase": "wearing pale blue-tinted lenses with the eyes cool behind"
+  },
+  {
+   "id": "green-tint",
+   "phrase": "wearing small green-tinted lenses like an old railway clerk"
+  },
+  {
+   "id": "smoked",
+   "phrase": "wearing smoked grey lenses that only just hide the eyes"
+  },
+  {
+   "id": "gradient",
+   "phrase": "wearing lenses dark at the top and pale below, the eyes showing at the bottom"
+  },
+  {
+   "id": "mirrored",
+   "phrase": "wearing polished mirrored lenses that give nothing of the eyes away"
+  },
+  {
+   "id": "one-dark-one-clear",
+   "phrase": "wearing glasses with one dark lens and one plain, one eye hidden and one wide open"
+  },
+  {
+   "id": "bifocal",
+   "phrase": "wearing glasses with a hard line across each lens, the eyes shifting above and below it"
+  },
+  {
+   "id": "spiral-lenses",
+   "phrase": "wearing glasses with a spiral pressed into each lens, the eyes swimming behind"
+  },
+  {
+   "id": "thick-round",
+   "phrase": "wearing thick round glasses that make the eyes look enormous"
+  },
+  {
+   "id": "strong-minus",
+   "phrase": "wearing lenses so strong the eyes shrink to two small dots behind them"
+  },
+  {
+   "id": "wraparound",
+   "phrase": "wearing sleek wraparound shades curving round the sides of the head"
+  },
+  {
+   "id": "shield-visor",
+   "phrase": "wearing one wide dark visor lens stretched across both eyes"
+  },
+  {
+   "id": "sport-strap",
+   "phrase": "wearing sport shades held on by a thick strap round the back of the head"
+  },
+  {
+   "id": "swim-goggles",
+   "phrase": "wearing tight swimming goggles that press two rings into the clay around the eyes"
+  },
+  {
+   "id": "ski-goggles",
+   "phrase": "wearing big padded ski goggles on a wide elastic strap"
+  },
+  {
+   "id": "welding",
+   "phrase": "wearing a dark welding visor flipped down flat over the eyes"
+  },
+  {
+   "id": "safety-glasses",
+   "phrase": "wearing plain safety glasses with side shields, the eyes wide behind them"
+  },
+  {
+   "id": "lab-goggles",
+   "phrase": "wearing round laboratory goggles sealed snugly to the face"
+  },
+  {
+   "id": "flight-goggles",
+   "phrase": "wearing leather-rimmed flying goggles strapped over the eyes"
+  },
+  {
+   "id": "motorcycle",
+   "phrase": "wearing old motorcycle goggles with clean rings of clay where the dust stopped"
+  },
+  {
+   "id": "dive-mask",
+   "phrase": "wearing a diving mask covering the eyes and the top of the nose"
+  },
+  {
+   "id": "squash-goggles",
+   "phrase": "wearing chunky squash goggles with thick protective rims"
+  },
+  {
+   "id": "cycling-shades",
+   "phrase": "wearing narrow cycling shades tucked close under the brow"
+  },
+  {
+   "id": "snow-slit",
+   "phrase": "wearing carved snow goggles with two thin viewing slits and no lenses at all"
+  },
+  {
+   "id": "monocle",
+   "phrase": "wearing a single round monocle in one eye, that eye held wide to grip it"
+  },
+  {
+   "id": "monocle-chain",
+   "phrase": "wearing a monocle on a short chain, the free eye narrowed"
+  },
+  {
+   "id": "pince-nez",
+   "phrase": "wearing pince-nez spectacles clipped to the bridge of the nose"
+  },
+  {
+   "id": "lorgnette",
+   "phrase": "wearing lorgnette spectacles raised on a little handle"
+  },
+  {
+   "id": "opera-glasses",
+   "phrase": "wearing small opera glasses lifted to both eyes"
+  },
+  {
+   "id": "loupe",
+   "phrase": "wearing a jeweller's loupe screwed into one eye, the other squeezed shut"
+  },
+  {
+   "id": "magnifier-visor",
+   "phrase": "wearing a magnifying visor swung down in front of the eyes"
+  },
+  {
+   "id": "eyeshade",
+   "phrase": "wearing a green eyeshade pulled low, the eyes in its shadow"
+  },
+  {
+   "id": "eyepatch-left",
+   "phrase": "wearing a black eyepatch over the left eye, the right one open wide"
+  },
+  {
+   "id": "eyepatch-right",
+   "phrase": "wearing a black eyepatch over the right eye and nothing over the left"
+  },
+  {
+   "id": "patch-and-glasses",
+   "phrase": "wearing glasses with an eyepatch behind one of the lenses"
+  },
+  {
+   "id": "blindfold",
+   "phrase": "wearing a broad dark band tied straight across where the eyes should be"
+  },
+  {
+   "id": "half-moon-slipping",
+   "phrase": "wearing half-moon spectacles slipped nearly off the end of the nose"
+  },
+  {
+   "id": "perched-high",
+   "phrase": "wearing spectacles perched high on the brow, the eyes peering out beneath"
+  },
+  {
+   "id": "pushed-up",
+   "phrase": "wearing glasses shoved up onto the top of the head, the eyes bare and blinking"
+  },
+  {
+   "id": "looking-over",
+   "phrase": "wearing glasses slid down the nose with the eyes looking over the top of them"
+  },
+  {
+   "id": "crooked",
+   "phrase": "wearing glasses sitting distinctly crooked, one lens higher than the other"
+  },
+  {
+   "id": "upside-down",
+   "phrase": "wearing glasses upside down, the arms pointing up past the antennae"
+  },
+  {
+   "id": "sideways",
+   "phrase": "wearing glasses on sideways, one lens over an eye and the other out past the cheek"
+  },
+  {
+   "id": "two-pairs",
+   "phrase": "wearing two pairs of glasses at once, one stacked over the other"
+  },
+  {
+   "id": "flip-up",
+   "phrase": "wearing glasses with a second dark pair flipped up above the lenses"
+  },
+  {
+   "id": "clip-on",
+   "phrase": "wearing glasses with dark clip-on shades hooked over the lenses"
+  },
+  {
+   "id": "chain",
+   "phrase": "wearing reading glasses on a beaded chain looping down past the jaw"
+  },
+  {
+   "id": "one-lens-missing",
+   "phrase": "wearing glasses with one lens missing, that eye blinking through the empty rim"
+  },
+  {
+   "id": "no-lenses",
+   "phrase": "wearing empty frames with no lenses at all and the eyes plain inside them"
+  },
+  {
+   "id": "cracked",
+   "phrase": "wearing glasses with a crack running clean across one lens"
+  },
+  {
+   "id": "taped-bridge",
+   "phrase": "wearing glasses mended with a lump of tape across the bridge"
+  },
+  {
+   "id": "bent-arm",
+   "phrase": "wearing glasses with one arm bent out of true, the whole pair sitting askew"
+  },
+  {
+   "id": "fogged",
+   "phrase": "wearing glasses fogged to a flat pale white, the eyes lost behind them"
+  },
+  {
+   "id": "rain-spotted",
+   "phrase": "wearing glasses beaded with round spots of rain"
+  },
+  {
+   "id": "thumbprinted",
+   "phrase": "wearing glasses smeared with thumbprints pressed into the lenses"
+  }
+ ],
+ "chest": [
+  {
+   "id": "stripes",
+   "phrase": "two horizontal stripes low on the chest"
+  },
+  {
+   "id": "blocks",
+   "phrase": "pale square blocks across the lower chest"
+  },
+  {
+   "id": "honeycomb",
+   "phrase": "a subtle raised honeycomb pattern across the lower chest"
+  },
+  {
+   "id": "plain",
+   "phrase": "a plain chest with no markings"
+  },
+  {
+   "id": "dots",
+   "phrase": "scattered soft dots across the chest and wings"
+  },
+  {
+   "id": "chunky-scarf",
+   "phrase": "a chunky knitted scarf wound twice around and tucked in at the front"
+  },
+  {
+   "id": "cable-jumper",
+   "phrase": "the ribbed collar of a cream cable-knit jumper riding up under the chin"
+  },
+  {
+   "id": "turtleneck",
+   "phrase": "a tall folded turtleneck swallowing the whole neck"
+  },
+  {
+   "id": "cardigan",
+   "phrase": "a soft cardigan buttoned crookedly, one button in the wrong hole"
+  },
+  {
+   "id": "patterned-yoke",
+   "phrase": "a band of small repeating knit shapes in three colours worked around the yoke"
+  },
+  {
+   "id": "moth-holed",
+   "phrase": "a well-loved woollen jumper with a small moth hole worn through near the collar"
+  },
+  {
+   "id": "bobble-scarf",
+   "phrase": "a long striped scarf ending in two fat wool bobbles"
+  },
+  {
+   "id": "crochet-shawl",
+   "phrase": "a crocheted shawl draped over both shoulders and pinned at the front"
+  },
+  {
+   "id": "poncho",
+   "phrase": "the fringed top edge of a woollen poncho falling over the shoulders"
+  },
+  {
+   "id": "tank-top",
+   "phrase": "a sleeveless knitted tank top pulled on over a pale collar"
+  },
+  {
+   "id": "crisp-collar",
+   "phrase": "the crisp white collar of a freshly pressed shirt, points turned neatly down"
+  },
+  {
+   "id": "open-collar",
+   "phrase": "an open shirt collar with the top two buttons undone"
+  },
+  {
+   "id": "popped-collar",
+   "phrase": "a shirt collar popped up high at the back of the neck"
+  },
+  {
+   "id": "ruffled-blouse",
+   "phrase": "a frilled ruffle running along the top edge of a blouse"
+  },
+  {
+   "id": "huge-collar",
+   "phrase": "an enormous pointed collar spreading almost shoulder to shoulder"
+  },
+  {
+   "id": "gingham-collar",
+   "phrase": "the small checked collar of a red and white gingham shirt"
+  },
+  {
+   "id": "flannel-shirt",
+   "phrase": "a soft brushed flannel shirt in a loose plaid, worn open"
+  },
+  {
+   "id": "polo-shirt",
+   "phrase": "a polo shirt with two buttons left open at the placket"
+  },
+  {
+   "id": "sailor-collar",
+   "phrase": "a wide square collar lying flat across the shoulders"
+  },
+  {
+   "id": "ruff",
+   "phrase": "a stiff pleated ruff standing right out all around the neck"
+  },
+  {
+   "id": "worn-tee",
+   "phrase": "the plain round neckline of a well-worn t-shirt"
+  },
+  {
+   "id": "v-neck",
+   "phrase": "a deep V-neck showing a triangle of bare clay"
+  },
+  {
+   "id": "bow-tie",
+   "phrase": "a small bow tie sitting just under the chin"
+  },
+  {
+   "id": "wonky-bow",
+   "phrase": "a bow tie tied badly, one loop far bigger than the other"
+  },
+  {
+   "id": "loose-tie",
+   "phrase": "a wide tie knotted loose, the knot pulled a good inch down"
+  },
+  {
+   "id": "cravat",
+   "phrase": "a silky cravat puffed up inside an open collar"
+  },
+  {
+   "id": "neckerchief",
+   "phrase": "a small square neckerchief knotted at the throat"
+  },
+  {
+   "id": "ribbon-bow",
+   "phrase": "a thin ribbon tied in a floppy bow at the collar"
+  },
+  {
+   "id": "school-tie",
+   "phrase": "a striped tie knotted far too tightly and worn much too short"
+  },
+  {
+   "id": "silk-scarf",
+   "phrase": "a light silk scarf knotted off to one side"
+  },
+  {
+   "id": "neck-bandana",
+   "phrase": "a folded bandana worn round the neck with the point hanging down"
+  },
+  {
+   "id": "gym-towel",
+   "phrase": "a rolled towel slung around the neck as if just out of the pool"
+  },
+  {
+   "id": "feather-boa",
+   "phrase": "a fluffy feather boa looped once around the shoulders"
+  },
+  {
+   "id": "shearling-collar",
+   "phrase": "the fleecy collar of a sheepskin jacket turned up against the wind"
+  },
+  {
+   "id": "streaming-scarf",
+   "phrase": "a long scarf caught mid-flap, streaming away to one side"
+  },
+  {
+   "id": "bead-necklace",
+   "phrase": "a string of fat round beads resting on the chest"
+  },
+  {
+   "id": "stone-pendant",
+   "phrase": "a leather cord carrying one smooth grey stone"
+  },
+  {
+   "id": "pearls",
+   "phrase": "a short strand of pearls sitting high on the neck"
+  },
+  {
+   "id": "shell-necklace",
+   "phrase": "a row of tiny shells threaded onto twine"
+  },
+  {
+   "id": "daisy-chain",
+   "phrase": "a daisy chain looped once and already beginning to wilt"
+  },
+  {
+   "id": "flower-lei",
+   "phrase": "a lei of thick soft blossoms hanging well down the chest"
+  },
+  {
+   "id": "bell-collar",
+   "phrase": "a slim collar with one small round bell hanging from it"
+  },
+  {
+   "id": "medal-ribbon",
+   "phrase": "a round medal hanging from a broad striped ribbon"
+  },
+  {
+   "id": "rosette",
+   "phrase": "a big pleated fabric rosette with two ribbon tails"
+  },
+  {
+   "id": "lapel-flower",
+   "phrase": "a single fresh flower pinned to the lapel"
+  },
+  {
+   "id": "brooch",
+   "phrase": "a large round brooch pinned at the throat"
+  },
+  {
+   "id": "football-shirt",
+   "phrase": "the round neck of a striped football shirt"
+  },
+  {
+   "id": "rugby-shirt",
+   "phrase": "the stiff white collar of a hooped rugby shirt"
+  },
+  {
+   "id": "tracksuit-top",
+   "phrase": "a zipped tracksuit top with contrast piping along the shoulders"
+  },
+  {
+   "id": "running-vest",
+   "phrase": "a thin running vest hanging from two narrow straps"
+  },
+  {
+   "id": "swimsuit-straps",
+   "phrase": "two thin swimsuit straps crossing over at the shoulders"
+  },
+  {
+   "id": "cycling-jersey",
+   "phrase": "the high zipped collar of a tight cycling jersey"
+  },
+  {
+   "id": "dungaree-straps",
+   "phrase": "a pair of denim dungaree straps clipped over the shoulders with metal buckles"
+  },
+  {
+   "id": "overall-bib",
+   "phrase": "the bib of a pair of work overalls with one strap slipped off the shoulder"
+  },
+  {
+   "id": "canvas-apron",
+   "phrase": "the top of a canvas apron with its neck loop showing"
+  },
+  {
+   "id": "chef-whites",
+   "phrase": "the double-breasted front of a chef's jacket"
+  },
+  {
+   "id": "hi-vis",
+   "phrase": "a high-visibility vest with two reflective bands running across it"
+  },
+  {
+   "id": "leather-apron",
+   "phrase": "a thick leather apron hung from one broad shoulder strap"
+  },
+  {
+   "id": "lab-coat",
+   "phrase": "the lapels of a white lab coat over a plain shirt"
+  },
+  {
+   "id": "scrubs",
+   "phrase": "the soft V-neck of a set of medical scrubs"
+  },
+  {
+   "id": "tabard",
+   "phrase": "a simple tabard pulled on over the head and tied loosely at the sides"
+  },
+  {
+   "id": "life-jacket",
+   "phrase": "a bulky orange life jacket buckled across the chest"
+  },
+  {
+   "id": "climbing-harness",
+   "phrase": "a padded harness strap running diagonally across the chest"
+  },
+  {
+   "id": "rucksack-straps",
+   "phrase": "two padded rucksack straps coming over the shoulders"
+  },
+  {
+   "id": "satchel-strap",
+   "phrase": "a satchel strap crossing down from one shoulder"
+  },
+  {
+   "id": "ear-defenders",
+   "phrase": "a pair of ear defenders hanging around the neck"
+  },
+  {
+   "id": "whistle",
+   "phrase": "a whistle on a woven cord resting against the chest"
+  },
+  {
+   "id": "stethoscope",
+   "phrase": "a stethoscope hooked around the neck with both ends dangling"
+  },
+  {
+   "id": "hoodie-strings",
+   "phrase": "a hoodie with two drawstrings hanging at wildly uneven lengths"
+  },
+  {
+   "id": "hood-up",
+   "phrase": "the hood of a sweatshirt pulled up and bunching around the neck"
+  },
+  {
+   "id": "denim-jacket",
+   "phrase": "the collar and top buttons of a stiff faded denim jacket"
+  },
+  {
+   "id": "puffer",
+   "phrase": "the quilted top panels of a puffer jacket with the zip only half done"
+  },
+  {
+   "id": "raincoat",
+   "phrase": "the toggled collar of a bright yellow raincoat"
+  },
+  {
+   "id": "blazer",
+   "phrase": "the notched lapels of a blazer over a plain shirt"
+  },
+  {
+   "id": "waistcoat",
+   "phrase": "a buttoned waistcoat with a fine chain looping across it"
+  },
+  {
+   "id": "dinner-jacket",
+   "phrase": "the satin lapels of a dinner jacket over a wing collar"
+  },
+  {
+   "id": "gilet",
+   "phrase": "a padded body warmer zipped right up to the chin"
+  },
+  {
+   "id": "anorak",
+   "phrase": "the drawcord collar of an anorak, cinched tight"
+  },
+  {
+   "id": "cape",
+   "phrase": "a short cape fastened at the throat with a round clasp"
+  },
+  {
+   "id": "dressing-gown",
+   "phrase": "a soft dressing gown crossed over at the front and held closed"
+  },
+  {
+   "id": "braces",
+   "phrase": "a pair of elastic braces stretched up over the shoulders"
+  },
+  {
+   "id": "festive-knit",
+   "phrase": "a knitted jumper with a row of clumsy snowflakes across it"
+  },
+  {
+   "id": "tinsel",
+   "phrase": "a length of tinsel draped around the neck like a scarf"
+  },
+  {
+   "id": "holiday-shirt",
+   "phrase": "the open collar of a loose shirt printed with big leaves and flowers"
+  },
+  {
+   "id": "snow-shoulders",
+   "phrase": "a dusting of fresh snow settled on the shoulders"
+  },
+  {
+   "id": "leaf-wrap",
+   "phrase": "one broad leaf wrapped around and tied with a stem of grass"
+  },
+  {
+   "id": "bird-shoulder",
+   "phrase": "a small round bird perched on one shoulder"
+  },
+  {
+   "id": "moss-bib",
+   "phrase": "a soft patch of moss growing across the chest like a bib"
+  },
+  {
+   "id": "cobweb",
+   "phrase": "a fine cobweb strung between the two shoulders"
+  },
+  {
+   "id": "fuzz-ruff",
+   "phrase": "a thick ruff of pale fuzz, the bee's own coat"
+  },
+  {
+   "id": "pollen-dust",
+   "phrase": "a heavy dusting of yellow pollen settled over everything"
+  },
+  {
+   "id": "bandage-wrap",
+   "phrase": "a wide clay bandage wound twice around and tucked under itself"
+  },
+  {
+   "id": "childs-bib",
+   "phrase": "a child's bib tied at the back of the neck, a few crumbs still on it"
+  },
+  {
+   "id": "snail-shoulder",
+   "phrase": "a small snail making its slow way across one shoulder"
+  },
+  {
+   "id": "beekeeper-veil",
+   "phrase": "the gathered elastic hem of a beekeeper's veil resting on the shoulders"
+  }
+ ],
+ "mouth": [
+  {
+   "id": "blob",
+   "phrase": "a small blob of a mouth"
+  },
+  {
+   "id": "bar",
+   "phrase": "one wide flat straight mouth bar"
+  },
+  {
+   "id": "none",
+   "phrase": "no visible mouth"
+  },
+  {
+   "id": "grin",
+   "phrase": "a wide closed-lip grin"
+  },
+  {
+   "id": "pursed",
+   "phrase": "a small pursed mouth"
+  },
+  {
+   "id": "thin-line",
+   "phrase": "just a thin scored line for a mouth"
+  },
+  {
+   "id": "hairline-crease",
+   "phrase": "the faintest hairline crease of a mouth, barely tooled in"
+  },
+  {
+   "id": "shallow-dent",
+   "phrase": "nothing but a shallow dent pressed in below the nose"
+  },
+  {
+   "id": "curve-up",
+   "phrase": "a shallow curve lifting at both ends"
+  },
+  {
+   "id": "curve-down",
+   "phrase": "a shallow curve sagging at both ends"
+  },
+  {
+   "id": "wedge",
+   "phrase": "a small triangular wedge cut in for a mouth"
+  },
+  {
+   "id": "open-oval",
+   "phrase": "a smooth open oval of a mouth"
+  },
+  {
+   "id": "rounded-square",
+   "phrase": "a soft rounded-square mouth with blunted corners"
+  },
+  {
+   "id": "crescent-up",
+   "phrase": "a crescent mouth lying on its back, horns turned up"
+  },
+  {
+   "id": "crescent-down",
+   "phrase": "a crescent mouth tipped over, horns pointing down"
+  },
+  {
+   "id": "deep-u",
+   "phrase": "a deep U scooped out of the clay"
+  },
+  {
+   "id": "sharp-v",
+   "phrase": "a sharp V pressed in point-downward"
+  },
+  {
+   "id": "wavy",
+   "phrase": "a wavy mouth rippling gently from side to side"
+  },
+  {
+   "id": "dash",
+   "phrase": "a short dash of a mouth, hardly wider than the nose"
+  },
+  {
+   "id": "comma-curl",
+   "phrase": "a straight mouth that curls like a comma at one end"
+  },
+  {
+   "id": "one-hook",
+   "phrase": "a flat mouth hooking sharply up at the right corner only"
+  },
+  {
+   "id": "trapezoid",
+   "phrase": "a wide trapezoid mouth, narrower along the bottom"
+  },
+  {
+   "id": "keyhole",
+   "phrase": "a keyhole mouth, round at the top and narrow below"
+  },
+  {
+   "id": "beam",
+   "phrase": "a broad beaming smile stretching nearly cheek to cheek"
+  },
+  {
+   "id": "soft-smile",
+   "phrase": "a gentle closed smile, hardly there at all"
+  },
+  {
+   "id": "half-smile",
+   "phrase": "half a smile, with only one side lifted"
+  },
+  {
+   "id": "smirk",
+   "phrase": "a lopsided smirk pulled over to the left"
+  },
+  {
+   "id": "smug",
+   "phrase": "a smug little smile with both corners tucked in"
+  },
+  {
+   "id": "frown",
+   "phrase": "a downturned frown pressed deep into the clay"
+  },
+  {
+   "id": "pout",
+   "phrase": "a full lower lip pushed out in a pout"
+  },
+  {
+   "id": "sulk",
+   "phrase": "a sulking mouth with both corners hanging heavy"
+  },
+  {
+   "id": "wobble",
+   "phrase": "a small wobbling mouth, not sure of itself"
+  },
+  {
+   "id": "undecided",
+   "phrase": "a mouth caught halfway between a smile and a frown"
+  },
+  {
+   "id": "sceptical",
+   "phrase": "a flat sceptical mouth with one corner drawn back"
+  },
+  {
+   "id": "deadpan",
+   "phrase": "a perfectly level deadpan mouth with no curve in it at all"
+  },
+  {
+   "id": "surprised-o",
+   "phrase": "a round open O of surprise"
+  },
+  {
+   "id": "gasp",
+   "phrase": "a small tall oval caught mid-gasp"
+  },
+  {
+   "id": "delighted",
+   "phrase": "a wide delighted smile with both cheeks bunched up"
+  },
+  {
+   "id": "shy-smile",
+   "phrase": "a shy little smile, the lips barely parted"
+  },
+  {
+   "id": "relieved",
+   "phrase": "a long soft exhale of a mouth, slightly open"
+  },
+  {
+   "id": "thinking",
+   "phrase": "a mouth pushed over to one side in thought"
+  },
+  {
+   "id": "unimpressed",
+   "phrase": "an unimpressed straight line with the smallest dip in the middle"
+  },
+  {
+   "id": "stifled-laugh",
+   "phrase": "a mouth pressed shut against a laugh"
+  },
+  {
+   "id": "cheeky",
+   "phrase": "a cheeky wide grin with crinkled corners"
+  },
+  {
+   "id": "mischief",
+   "phrase": "a narrow mischievous smile, all of it on one side"
+  },
+  {
+   "id": "singing",
+   "phrase": "a tall open oval, caught mid-note"
+  },
+  {
+   "id": "shouting",
+   "phrase": "a big squared-off mouth, mid-shout"
+  },
+  {
+   "id": "yawn",
+   "phrase": "a wide round yawn with the lips stretched thin"
+  },
+  {
+   "id": "barely-parted",
+   "phrase": "a mouth only just parted, a dark line showing between the lips"
+  },
+  {
+   "id": "gaping",
+   "phrase": "a gaping round mouth held wide open"
+  },
+  {
+   "id": "sealed",
+   "phrase": "a firmly sealed mouth pressed shut"
+  },
+  {
+   "id": "clamped",
+   "phrase": "a mouth clamped tight into one hard line"
+  },
+  {
+   "id": "corner-up",
+   "phrase": "a level mouth with one corner tugged upward"
+  },
+  {
+   "id": "corner-down",
+   "phrase": "a level mouth with one corner dragged downward"
+  },
+  {
+   "id": "off-centre",
+   "phrase": "a small mouth set noticeably off to one side"
+  },
+  {
+   "id": "crooked-downhill",
+   "phrase": "a crooked mouth running slightly downhill"
+  },
+  {
+   "id": "two-teeth",
+   "phrase": "a smile showing two blunt square clay teeth"
+  },
+  {
+   "id": "single-tooth",
+   "phrase": "an open smile with one lone tooth in the middle"
+  },
+  {
+   "id": "gap-tooth",
+   "phrase": "a grin with a clear gap between the two front teeth"
+  },
+  {
+   "id": "full-teeth",
+   "phrase": "a wide grin packed with small even blunt teeth"
+  },
+  {
+   "id": "lower-teeth",
+   "phrase": "an open mouth showing only the bottom row of teeth"
+  },
+  {
+   "id": "one-fang",
+   "phrase": "a closed smile with a single blunt tooth poking out over the lip"
+  },
+  {
+   "id": "buck-teeth",
+   "phrase": "two large front teeth resting on the lower lip"
+  },
+  {
+   "id": "crooked-teeth",
+   "phrase": "a grin with three cheerfully crooked teeth"
+  },
+  {
+   "id": "tongue-tip",
+   "phrase": "a closed mouth with just the tip of the tongue showing"
+  },
+  {
+   "id": "tongue-out",
+   "phrase": "a mouth with the tongue stuck right out"
+  },
+  {
+   "id": "tongue-corner",
+   "phrase": "a mouth with the tongue poking from one corner in concentration"
+  },
+  {
+   "id": "licking",
+   "phrase": "a mouth with the tongue running along the upper lip"
+  },
+  {
+   "id": "thin-lips",
+   "phrase": "two very thin lips barely raised off the face"
+  },
+  {
+   "id": "full-lips",
+   "phrase": "two full rounded lips, generously modelled"
+  },
+  {
+   "id": "top-heavy-lip",
+   "phrase": "a thick upper lip with almost no lower one beneath it"
+  },
+  {
+   "id": "bottom-heavy-lip",
+   "phrase": "a heavy lower lip under a thin upper one"
+  },
+  {
+   "id": "pressed-pale",
+   "phrase": "two lips pressed flat together until they go pale"
+  },
+  {
+   "id": "cupids-bow",
+   "phrase": "a mouth with a pronounced dip in the middle of the upper lip"
+  },
+  {
+   "id": "rolled-in",
+   "phrase": "a mouth with both lips rolled in out of sight"
+  },
+  {
+   "id": "glossy-lip",
+   "phrase": "a mouth with a bright shine along the lower lip"
+  },
+  {
+   "id": "whistling",
+   "phrase": "a small tight circle of a mouth, whistling"
+  },
+  {
+   "id": "bubble",
+   "phrase": "a mouth blowing one small round bubble"
+  },
+  {
+   "id": "biting-lip",
+   "phrase": "a mouth biting down on its own lower lip"
+  },
+  {
+   "id": "flower-stem",
+   "phrase": "a closed mouth holding a tiny flower stem crosswise"
+  },
+  {
+   "id": "straw",
+   "phrase": "a mouth pursed around a short clay straw"
+  },
+  {
+   "id": "blowing",
+   "phrase": "a rounded mouth blowing a thin stream of air"
+  },
+  {
+   "id": "humming",
+   "phrase": "a closed mouth with the cheeks slightly puffed, humming"
+  },
+  {
+   "id": "holding-pin",
+   "phrase": "a mouth gripping a small clay pin between the lips"
+  },
+  {
+   "id": "chewing",
+   "phrase": "a mouth working sideways on something it is chewing"
+  },
+  {
+   "id": "kiss",
+   "phrase": "a mouth pushed forward into a small round kiss"
+  },
+  {
+   "id": "seed-corner",
+   "phrase": "a closed mouth with one tiny seed held at the corner"
+  },
+  {
+   "id": "leaf-stem",
+   "phrase": "a mouth clamped on the stem of one small leaf"
+  },
+  {
+   "id": "zigzag",
+   "phrase": "a zigzag mouth of four sharp little peaks"
+  },
+  {
+   "id": "thumbnail-dent",
+   "phrase": "one pressed thumbnail dent standing in for a mouth"
+  },
+  {
+   "id": "high-set",
+   "phrase": "a mouth set unusually high, tucked right under the nose"
+  },
+  {
+   "id": "low-set",
+   "phrase": "a mouth set very low, right down at the edge of the jaw"
+  },
+  {
+   "id": "tiny-mouth",
+   "phrase": "a mouth far too small for so large a head"
+  },
+  {
+   "id": "huge-mouth",
+   "phrase": "an enormous mouth spanning the entire width of the face"
+  },
+  {
+   "id": "two-mouths",
+   "phrase": "two small mouths, one directly above the other"
+  },
+  {
+   "id": "vertical",
+   "phrase": "a mouth running vertically up and down instead of across"
+  },
+  {
+   "id": "dotted",
+   "phrase": "five small dots in a row where the mouth ought to be"
+  },
+  {
+   "id": "stitched",
+   "phrase": "three little clay stitches standing in for a mouth"
+  },
+  {
+   "id": "floating",
+   "phrase": "a small mouth floating on its own, set well clear of the nose"
+  },
+  {
+   "id": "smoothed-over",
+   "phrase": "no mouth as such, only a patch smoothed almost flat again"
+  }
+ ],
+ "_hard_rules": [
+  "Headwear is decorative. It may depict anything, personality, sports, occupation, whatever is fun, but it does not encode what the agent does. A bee in a cowboy hat is not a cowboy, it is a bee wearing a cowboy hat. Role lives in the antenna tip. That is what lets the headwear vocabulary stay open without competing with the tip.",
+  "The glasses slot is switched off in _disabled_slots. The 100 entries stay in the file, and the assembler skips the slot unless you pass an explicit --glasses identifier. Remove the slot from _disabled_slots to turn it on. It is off because glasses and eyes compete for the same small area.",
+  "Accessories are rare on purpose, about one bee in six. An accessory every bee has identifies nobody.",
+  "Base colours past the first ten were packed by clay_colours.py, which places new colours as far as it can from the ones already taken, measured in CIELAB inside the range where clay looks like clay. Before you commit a colour to a new roster bee, run clay_colours.py check on it. Colour is the axis people actually read at small sizes, and it runs out first, so a colour that merely looks different at full size may not be."
+ ],
+ "_disabled_slots": [
+  "glasses"
+ ],
+ "_disabled_slots_note": "The glasses slot is filled with 100 entries but switched off by owner decision, because glasses compete with the eyes for the same space. Remove \"glasses\" from _disabled_slots to turn it on."
+}
