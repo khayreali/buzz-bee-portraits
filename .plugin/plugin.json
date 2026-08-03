@@ -1,5 +1,4 @@
 {
-  "$schema": "https://open-plugin-spec.org/schema/v1/plugin.json",
   "id": "com.khayreali.buzz-bee-portraits",
   "name": "Buzz Bee Portraits",
   "version": "1.0.0",
