@@ -20,6 +20,12 @@ BRANCH="main"
 NEST="${BUZZ_NEST:-$HOME/.buzz}"
 TARGET="$NEST/.agents/skills/bee-portrait"
 
+# The real copy lives under .agents/skills so every runtime shares one install,
+# and each runtime only reads its own directory. Buzz Desktop does exactly this
+# for its own buzz-cli skill, so a symlink per runtime is the shape to match.
+# Without the link the skill sits on disk and no agent can ever see it.
+RUNTIME_DIRECTORIES=".claude/skills .goose/skills .codex/skills"
+
 # Everything install_from copies. Checked before anything is deleted, so a bad
 # or half downloaded source cannot leave a working install in pieces.
 REQUIRED="skills/bee-portrait/SKILL.md bin/generate_bee.py bin/assemble_bee.py bin/clay_colours.py bin/components.json LICENSE NOTICE refs/LICENSE"
@@ -67,6 +73,21 @@ run_check() {
         say "  scripts      installed, $count reference portraits"
     else
         say "  scripts      not installed"
+    fi
+
+    # An install nothing links to is invisible to every agent, so report the
+    # links rather than letting a green looking check hide it.
+    found=""
+    for relative in $RUNTIME_DIRECTORIES; do
+        if [ -L "$NEST/$relative/bee-portrait" ]; then
+            found="$found $relative"
+        fi
+    done
+    if [ -n "$found" ]; then
+        say "  loaded by   $found"
+    else
+        say "  loaded by   NOTHING. No runtime is linked to this install,"
+        say "              so no agent can see the skill. Reinstall to fix it."
     fi
 
     check_key
@@ -144,6 +165,40 @@ install_from() {
     fi
 
     mv "$staging" "$TARGET"
+
+    link_runtimes
+}
+
+# Point every runtime that is set up in this nest at the copy we just installed.
+link_runtimes() {
+    linked=""
+    for relative in $RUNTIME_DIRECTORIES; do
+        runtime_directory="$NEST/$relative"
+        runtime_root=$(dirname "$runtime_directory")
+
+        # Only wire up a runtime the person actually uses. Creating .goose for
+        # somebody who runs Claude Code would just be litter in their nest.
+        if [ ! -d "$runtime_root" ]; then
+            continue
+        fi
+
+        mkdir -p "$runtime_directory"
+        link="$runtime_directory/bee-portrait"
+        rm -rf "$link"
+        ln -s "../../.agents/skills/bee-portrait" "$link"
+        linked="$linked $relative"
+    done
+
+    # No runtime directory at all means a nest that has not been set up yet.
+    # Claude Code is the common case, so leave the skill somewhere it will be
+    # found rather than installing it where nothing reads.
+    if [ -z "$linked" ]; then
+        mkdir -p "$NEST/.claude/skills"
+        link="$NEST/.claude/skills/bee-portrait"
+        rm -rf "$link"
+        ln -s "../../.agents/skills/bee-portrait" "$link"
+        linked=" .claude/skills"
+    fi
 }
 
 download_and_install() {
