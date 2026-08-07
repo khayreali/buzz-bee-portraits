@@ -255,8 +255,13 @@ buzz upload file --file bee.png
 ```
 
 That prints a descriptor including a `url`. The portrait has to be uploaded for
-this to work. An avatar is a public address that other clients fetch, so there
-is no local file path that will do instead, and no offline option.
+this to work. A profile picture is an address that clients fetch rather than a
+file, so there is no local path that will do instead and no offline option.
+
+That address is not public. The relay requires a signed read and current relay
+membership on every media request, so fetching one without authenticating
+returns 401. The picture loads for relay members inside Buzz, and a client that
+reads the profile without authenticating will not be able to show it.
 
 Then set it on the profile:
 
