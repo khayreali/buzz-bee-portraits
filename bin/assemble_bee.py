@@ -33,10 +33,12 @@ SLOT_ORDER = [
 TEMPLATE = """A claymation / plasticine character portrait of a cute stylised bee, in exactly \
 the same handmade stop-motion clay style as the reference images: matte \
 polymer-clay surface with subtle thumbprint texture, soft even studio lighting, \
-gentle drop shadow, pure white background with a thin light-grey circular ring \
-vignette, square 1:1 crop, bust composition with a rounded cube head filling most \
-of the frame and cropped by the bottom edge, two soft wings behind the head \
-spreading into the lower half.
+gentle drop shadow, pure white background, square 1:1 crop, bust composition with \
+a rounded cube head filling most of the frame and cropped by the bottom edge, two \
+soft wings behind the head spreading into the lower half. Keep every part of the \
+bee, including the tips of the antennae and the outer edge of the wings, well \
+inside a circle touching the four sides of the frame, because the picture is \
+displayed as a circle and the corners are cut away.
 
 The bee is {base_colour}.
 
