@@ -248,6 +248,19 @@ def check_documented_identifiers():
             identifiers.append(entry["id"])
         identifiers_for_flag[flag] = identifiers
 
+    # The readme documents make_bee.py, whose parts come from the sprite
+    # manifest rather than the phrase library. Both tools share flag names,
+    # so an identifier is valid if either one accepts it. Checking only the
+    # library reported the readme as broken when it was correct.
+    manifest_path = ROOT / "sprites" / "manifest.json"
+    if manifest_path.exists():
+        sprite_manifest = json.loads(manifest_path.read_text())
+        for slot, spec in sprite_manifest["slots"].items():
+            flag = "--" + slot.replace("_", "-")
+            flag_for_slot[flag] = slot
+            identifiers_for_flag.setdefault(flag, [])
+            identifiers_for_flag[flag] = identifiers_for_flag[flag] + spec["parts"]
+
     checked = 0
     for path in sorted(ROOT.rglob("*.md")):
         if ".git" in path.parts:
@@ -328,8 +341,102 @@ def check_no_em_dashes():
     print("style: em dash scan done")
 
 
+
+def check_sprites():
+    """The parts are the product, so a missing one is an error, not a warning.
+
+    The manifest is what make_bee.py reads. If it names a part that is not on
+    disk the tool crashes for whoever installed it, and if a part sits on disk
+    unlisted it was either rejected by the quality gate or forgotten. Both are
+    worth failing over.
+    """
+    sprites = ROOT / "sprites"
+    manifest_path = sprites / "manifest.json"
+    if not manifest_path.exists():
+        fail("sprites/manifest.json is missing, so nothing can be assembled")
+        return
+
+    manifest = json.loads(manifest_path.read_text())
+
+    base = sprites / manifest.get("base", "base.png")
+    if not base.exists():
+        fail("the base at " + str(base) + " is missing")
+
+    listed = 0
+    for slot, spec in manifest["slots"].items():
+        directory = sprites / "parts" / slot
+        if not directory.is_dir():
+            fail("slot " + slot + " has no directory at " + str(directory))
+            continue
+
+        on_disk = set(path.stem for path in directory.glob("*.png"))
+        for identifier in spec["parts"]:
+            listed += 1
+            if identifier not in on_disk:
+                fail("manifest lists " + slot + "/" + identifier + " but the file is missing")
+
+        # A part on disk that is neither shipped nor recorded as rejected has
+        # been forgotten, and that is worth saying out loud.
+        accounted = set(spec["parts"]) | set(spec.get("rejected", []))
+        for identifier in sorted(on_disk - accounted):
+            fail(slot + "/" + identifier + " is on disk but neither listed nor rejected")
+
+        for identifier in spec.get("rejected", []):
+            if identifier in spec["parts"]:
+                fail(slot + "/" + identifier + " is both shipped and rejected")
+
+        if not spec["parts"]:
+            fail("slot " + slot + " has no usable parts")
+
+    print("sprites: " + str(listed) + " parts listed and present")
+
+
+def check_make_bee():
+    """Actually build bees, because a manifest that parses proves nothing."""
+    import subprocess
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as directory:
+        first = Path(directory) / "one.png"
+        again = Path(directory) / "two.png"
+
+        result = subprocess.run(
+            [sys.executable, str(BIN / "make_bee.py"), "--seed", "7", "--out", str(first)],
+            capture_output=True, text=True,
+        )
+        if result.returncode != 0:
+            fail("make_bee.py failed: " + result.stderr.strip().splitlines()[-1])
+            return
+
+        subprocess.run(
+            [sys.executable, str(BIN / "make_bee.py"), "--seed", "7", "--out", str(again)],
+            capture_output=True, text=True,
+        )
+        if first.read_bytes() != again.read_bytes():
+            fail("the same seed produced two different bees")
+
+        if not first.with_suffix(".json").exists():
+            fail("make_bee.py did not write the recipe beside the image")
+
+        # A handful of seeds, so a part that breaks assembly shows up here
+        # rather than in somebody else's terminal.
+        for seed in (1, 2, 3, 4, 5):
+            out = Path(directory) / ("s" + str(seed) + ".png")
+            run = subprocess.run(
+                [sys.executable, str(BIN / "make_bee.py"), "--seed", str(seed), "--out", str(out)],
+                capture_output=True, text=True,
+            )
+            if run.returncode != 0 or not out.exists():
+                fail("make_bee.py failed on seed " + str(seed))
+                return
+
+    print("make_bee: 7 bees built, same seed reproduces")
+
+
 def main():
     check_library()
+    check_sprites()
+    check_make_bee()
     personas = check_manifest()
     check_personas(personas)
     check_skills()

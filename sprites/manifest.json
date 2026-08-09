@@ -27,6 +27,10 @@
     "startled-flare--rainbow",
     "threaded--lighthouse",
     "thumbprint-base--pawn"
+   ],
+   "rejected": [
+    "flat-spiral--candle",
+    "pretzel--seedling"
    ]
   },
   "eyes": {
@@ -57,7 +61,8 @@
     "wide-awake",
     "worried-brows",
     "wrinkled"
-   ]
+   ],
+   "rejected": []
   },
   "nose": {
    "body_coloured": true,
@@ -87,7 +92,8 @@
     "teardrop-nose",
     "upturned",
     "wrinkled-nose"
-   ]
+   ],
+   "rejected": []
   },
   "mouth": {
    "body_coloured": true,
@@ -117,7 +123,8 @@
     "undecided",
     "whistling",
     "zigzag"
-   ]
+   ],
+   "rejected": []
   },
   "glasses": {
    "body_coloured": false,
@@ -147,7 +154,8 @@
     "two-pairs",
     "two-tone",
     "welding"
-   ]
+   ],
+   "rejected": []
   },
   "headwear": {
    "body_coloured": false,
@@ -172,8 +180,16 @@
     "towel-turban",
     "umbrella-hat",
     "watermelon-rind"
+   ],
+   "rejected": [
+    "bonnet",
+    "fencing-mask",
+    "football-helmet",
+    "top-hat",
+    "wizard"
    ]
   }
  },
- "combinations_before_colour": 152064000
+ "combinations_before_colour": 152064000,
+ "rejected_note": "Parts the quality gate refused. Kept on disk so the decision is auditable, never assembled. A part is refused when the model redrew the body instead of adding to it."
 }
