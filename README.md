@@ -10,7 +10,7 @@
 [![parts](https://img.shields.io/badge/parts-111-F5A623.svg)](#the-parts)
 [![combinations](https://img.shields.io/badge/combinations-66%20million-8E75B2.svg)](#the-parts)
 
-[Install](#install) · [Usage](#usage) · [The parts](#the-parts) · [How it works](#how-it-works) · [Drawing new parts](#drawing-new-parts) · [Built on](#built-on) · [Design notes](docs/BEE_PORTRAIT_SYSTEM.md)
+[Install](#install) · [Usage](#usage) · [The parts](#the-parts) · [How it works](#how-it-works) · [Built on](#built-on) · [Design notes](docs/BEE_PORTRAIT_SYSTEM.md)
 
 ![eight generated bees](docs/examples.png)
 
