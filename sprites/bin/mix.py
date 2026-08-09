@@ -1,10 +1,13 @@
 """Assemble whole bees by mixing approved parts. No API calls, no key."""
 import random, pathlib, json
+import pathlib
 from PIL import Image
 import assemble as A
 import batch
 
-BASE = "base_noshadow.png"
+HERE = pathlib.Path(__file__).resolve().parent
+SPRITES = HERE.parent
+BASE = str(SPRITES / "base.png")
 # which slots recolour with the body, and the order they stack in
 STACK = [("antennae", True), ("nose", True), ("mouth", True),
          ("chest", False), ("eyes", False), ("glasses", False), ("headwear", False)]

@@ -1,9 +1,12 @@
 """Stack clay parts onto the blank base and recolour the result."""
+import pathlib
 from PIL import Image, ImageChops, ImageFilter
 from collections import deque
 import colorsys
 
-BASE = "base3.png"
+HERE = pathlib.Path(__file__).resolve().parent
+SPRITES = HERE.parent
+BASE = str(SPRITES / "base.png")
 
 # Measured from the base: clay never rises above this, and the shadow it
 # throws onto the paper never falls below it. So one number separates

@@ -1,9 +1,12 @@
 """Render bees the way Buzz actually shows them, as circles."""
 import random, pathlib
+import pathlib
 from PIL import Image, ImageDraw
 import assemble as A, batch, mix
 
-BASE = "base_noshadow.png"
+HERE = pathlib.Path(__file__).resolve().parent
+SPRITES = HERE.parent
+BASE = str(SPRITES / "base.png")
 
 
 def circle(im, size):

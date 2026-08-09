@@ -3,9 +3,15 @@ import json, subprocess, sys, pathlib, concurrent.futures as futures
 from PIL import Image, ImageDraw
 import assemble as A
 
-GEN = "/Users/khayreali/.buzz/.agents/skills/bee-portrait/bin/generate_bee.py"
-LIB = json.load(open("/Users/khayreali/.buzz/.agents/skills/bee-portrait/bin/components.json"))
-BASE = "base_noshadow.png"
+# Everything resolves from this file, so the tools work from a checkout,
+# from an install, and from any working directory.
+HERE = pathlib.Path(__file__).resolve().parent
+SPRITES = HERE.parent
+ROOT = SPRITES.parent
+
+GEN = str(ROOT / "bin" / "generate_bee.py")
+LIB = json.loads((ROOT / "bin" / "components.json").read_text())
+BASE = str(SPRITES / "base.png")
 WORKERS = 1
 RETRIES = 12
 
@@ -66,10 +72,10 @@ def prompt_for(slot, entry, tip=None):
 
 
 def generate(slot, ident, text, seed):
-    out = pathlib.Path(slot) / f"{ident}.png"
+    out = SPRITES / "parts" / slot / f"{ident}.png"
     if out.exists():
         return ident, True
-    p = pathlib.Path(slot) / f"{ident}.txt"
+    p = SPRITES / "parts" / slot / f"{ident}.txt"
     p.write_text(text)
     # The image API rate limits well below what four workers ask of it, and
     # it recovers within seconds, so back off and try again rather than
@@ -88,7 +94,7 @@ def generate(slot, ident, text, seed):
 
 
 def run(slot, count=24):
-    pathlib.Path(slot).mkdir(exist_ok=True)
+    pathlib.Path(SPRITES / "parts" / slot).mkdir(parents=True, exist_ok=True)
     picks = entries(slot, count)
     jobs = []
     if slot == "antennae":
@@ -112,7 +118,7 @@ def run(slot, count=24):
 def sheet(slot, cols=6):
     base = Image.open(BASE).convert("RGB")
     clay = A.paper_mask(base)
-    files = sorted(pathlib.Path(slot).glob("*.png"))
+    files = sorted((SPRITES / "parts" / slot).glob("*.png"))
     if not files:
         print(f"no parts for {slot}, nothing to draw")
         return
@@ -150,7 +156,7 @@ def check(slot):
     total = sum(1 for y in range(h) for x in range(w) if bb[x, y])
     low_band = int(h * 0.45) if slot in ("antennae", "headwear") else h
     bad = []
-    for f in sorted(pathlib.Path(slot).glob("*.png")):
+    for f in sorted((SPRITES / "parts" / slot).glob("*.png")):
         img = Image.open(f).convert("RGB")
         if img.size != base.size:
             img = img.resize(base.size)
