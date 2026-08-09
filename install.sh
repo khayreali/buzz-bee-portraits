@@ -28,7 +28,7 @@ RUNTIME_DIRECTORIES=".claude/skills .goose/skills .codex/skills"
 
 # Everything install_from copies. Checked before anything is deleted, so a bad
 # or half downloaded source cannot leave a working install in pieces.
-REQUIRED="skills/bee-portrait/SKILL.md bin/generate_bee.py bin/assemble_bee.py bin/clay_colours.py bin/components.json LICENSE NOTICE refs/LICENSE"
+REQUIRED="skills/bee-portrait/SKILL.md bin/make_bee.py bin/parts.py sprites/base.png sprites/manifest.json LICENSE NOTICE refs/LICENSE"
 
 say() {
     printf '%s\n' "$1"
@@ -43,15 +43,14 @@ check_python() {
     fi
 }
 
+# Making bees needs no key. The key only matters for the optional tool that
+# draws brand new parts, so say that rather than implying something is missing.
 check_key() {
     if [ -n "$GEMINI_API_KEY" ]; then
-        say "  api key      set"
+        say "  api key      set, so you can also draw new parts"
     else
-        say "  api key      not set in this shell"
-        say "               Buzz Desktop: Settings, Agents, Agent defaults,"
-        say "               Advanced, Environment variables. Add GEMINI_API_KEY."
-        say "               Or in a shell: export GEMINI_API_KEY=your-key"
-        say "               Get a key at https://aistudio.google.com/apikey"
+        say "  api key      not set, which is fine. Making bees needs no key."
+        say "               Only needed to draw new parts. GEMINI_API_KEY."
     fi
 }
 
@@ -68,11 +67,11 @@ run_check() {
         say "  skill        not installed"
     fi
 
-    if [ -f "$TARGET/bin/components.json" ]; then
-        count=$(ls "$TARGET/refs"/*.png 2>/dev/null | wc -l | tr -d ' ')
-        say "  scripts      installed, $count reference portraits"
+    if [ -f "$TARGET/sprites/manifest.json" ]; then
+        count=$(ls "$TARGET/sprites/parts"/*/*.png 2>/dev/null | wc -l | tr -d ' ')
+        say "  parts        $count installed"
     else
-        say "  scripts      not installed"
+        say "  parts        NOT installed. Nothing can be assembled."
     fi
 
     # An install nothing links to is invisible to every agent, so report the
@@ -93,13 +92,13 @@ run_check() {
     check_key
     say ""
 
-    if [ "$have_python" = yes ] && [ -f "$TARGET/bin/generate_bee.py" ]; then
-        say "Try it, this one is free and makes no network call:"
-        say "  python3 $TARGET/bin/generate_bee.py --seed 7 --dry-run --out /dev/null"
+    if [ "$have_python" = yes ] && [ -f "$TARGET/bin/make_bee.py" ]; then
+        say "Try it. This is free and makes no network call:"
+        say "  python3 $TARGET/bin/make_bee.py --seed 7 --out bee.png"
         return 0
     fi
 
-    if [ ! -f "$TARGET/bin/generate_bee.py" ]; then
+    if [ ! -f "$TARGET/bin/make_bee.py" ]; then
         say "Nothing is installed here. To install it:"
         say "  curl -fsSL https://raw.githubusercontent.com/$REPOSITORY/$BRANCH/install.sh | sh"
     fi
@@ -136,6 +135,10 @@ install_from() {
     # The skill ships with the scripts and references inside it, so an agent
     # never has to find a separate checkout.
     cp -R "$source_directory/bin" "$staging/bin"
+
+    # The parts are the product. Without them make_bee.py has nothing to
+    # assemble, so a partial copy here is worse than no install at all.
+    cp -R "$source_directory/sprites" "$staging/sprites"
     mkdir -p "$staging/refs"
     for portrait in "$source_directory/refs"/*.png; do
         if [ -f "$portrait" ]; then
@@ -152,8 +155,8 @@ install_from() {
     # person who ran the tool. Never carry the maintainer's copy to a stranger.
     rm -f "$staging/bin/roster.json"
 
-    chmod +x "$staging/bin/assemble_bee.py" "$staging/bin/generate_bee.py" \
-        "$staging/bin/clay_colours.py"
+    chmod +x "$staging/bin/make_bee.py" "$staging/bin/assemble_bee.py" \
+        "$staging/bin/generate_bee.py" "$staging/bin/clay_colours.py"
 
     # components.json is the file the documentation tells people to edit, and
     # roster.json is the file they are told to generate. Keep the old install
