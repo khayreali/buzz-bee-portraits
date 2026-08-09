@@ -10,7 +10,7 @@
 [![parts](https://img.shields.io/badge/parts-111-F5A623.svg)](#the-parts)
 [![combinations](https://img.shields.io/badge/combinations-66%20million-8E75B2.svg)](#the-parts)
 
-[Install](#install) · [Usage](#usage) · [The parts](#the-parts) · [How it works](#how-it-works) · [Drawing new parts](#drawing-new-parts) · [Design notes](docs/BEE_PORTRAIT_SYSTEM.md)
+[Install](#install) · [Usage](#usage) · [The parts](#the-parts) · [How it works](#how-it-works) · [Drawing new parts](#drawing-new-parts) · [Built on](#built-on) · [Design notes](docs/BEE_PORTRAIT_SYSTEM.md)
 
 ![eight generated bees](docs/examples.png)
 
@@ -237,6 +237,17 @@ skills/bee-portrait/  the skill an agent loads
 tests/check_repo.py   the checks continuous integration runs
 docs/                 the design reasoning
 ```
+
+---
+
+## Built on
+
+| | |
+| --- | --- |
+| [block/buzz](https://github.com/block/buzz) | The platform these portraits are for, and the source of the three reference bees. Apache-2.0. |
+| [Gemini 3 Pro Image](https://aistudio.google.com/) | Drew every part. Only needed to add new ones, never to use them. |
+| [Pillow](https://python-pillow.org/) | Does all the compositing and recolouring. |
+| Python 3 | The only thing you need installed. |
 
 ---
 

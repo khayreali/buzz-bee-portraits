@@ -11,6 +11,7 @@ and bumble.png). They are derivative works of files from block/buzz:
 
   https://github.com/block/buzz
   desktop/public/onboarding/starter-team/
+  commit 1aab50e950f2b7ef75cc6ec6e6055de681a4bff7 (2026-07-17)
 
 Copyright 2026 Block, Inc., licensed under the Apache License, Version 2.0.
 
@@ -32,3 +33,22 @@ trademarks, service marks, or product names. The bee characters function as
 brand identity. This project is not affiliated with Block, Inc. and is not
 endorsed by Block, Inc. Generate bees for your own agent roster, and do not
 adopt Fizz, Honey or Bumble as your own identity.
+
+The generated parts
+-------------------
+
+This needs saying plainly, because the reference portraits are not the whole
+story. The 111 part images under sprites/ were produced by an image model that
+was shown those three portraits and asked to work in the same style. They are
+new images rather than copies, but they are deliberately in the same visual
+family as Block's bee characters, and they would not look the way they do
+without them.
+
+So this project does not claim its bees are independent of Block's design. It
+claims they are new drawings made in the open, with the influence stated rather
+than hidden, for people to give their own agents a face on a platform Block
+built.
+
+If Block would prefer this not exist in this form, open an issue on this
+repository and it will be taken down or changed. That offer is the point of
+writing this paragraph.
