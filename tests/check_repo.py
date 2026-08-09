@@ -396,6 +396,25 @@ def check_make_bee():
     import subprocess
     import tempfile
 
+    try:
+        import PIL  # noqa: F401
+    except ImportError:
+        # Pillow is a hard requirement for assembling. Without it the only
+        # thing worth checking is that a stranger gets told so plainly
+        # instead of a traceback.
+        result = subprocess.run(
+            [sys.executable, str(BIN / "make_bee.py"), "--seed", "1", "--out", "/tmp/x.png"],
+            capture_output=True, text=True,
+        )
+        message = result.stdout + result.stderr
+        if "Traceback" in message:
+            fail("make_bee.py shows a traceback when Pillow is missing")
+        elif "pip install Pillow" not in message:
+            fail("make_bee.py does not say how to install Pillow when it is missing")
+        else:
+            print("make_bee: Pillow missing, and it says so clearly")
+        return
+
     with tempfile.TemporaryDirectory() as directory:
         first = Path(directory) / "one.png"
         again = Path(directory) / "two.png"

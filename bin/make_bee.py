@@ -9,7 +9,15 @@ import pathlib
 import random
 import sys
 
-from PIL import Image
+try:
+    from PIL import Image
+except ImportError:
+    raise SystemExit(
+        "Pillow is required to assemble a bee. Install it with:\n"
+        "  pip install Pillow\n"
+        "or, if pip refuses because the system owns python:\n"
+        "  pip install --user Pillow"
+    )
 
 import parts as parts_module
 
