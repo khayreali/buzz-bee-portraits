@@ -29,7 +29,7 @@ This gives each one a face.
   bee is local file work.
 - **Instant.** About a sixth of a second per portrait.
 - **66 million combinations.** 111 hand reviewed parts across five slots, times
-  twelve clay colours.
+  twelve clay colours. About 3,500 before a random repeat, see [the parts](#the-parts).
 - **Reproducible.** The same seed always gives the same bee, and every portrait is
   written with a JSON sidecar recording exactly what went into it.
 - **One dependency.** Python 3 and Pillow.
@@ -139,8 +139,22 @@ its own portrait. Nobody can apply one on its behalf.
 111 parts. Headwear stays rare on purpose, because a hat on every bee stops reading
 as a face and starts reading as clutter.
 
-That gives 5,537,664 shapes before colour, and 66 million once the twelve clay
+That gives 5,537,664 shapes before colour, and 66,451,968 bees once the twelve clay
 colours are counted.
+
+Worth being straight about a second number though. Because a hat is only drawn on
+about one bee in three, most bees come from a much smaller pool:
+
+| | Possible | Share of random draws |
+| --- | --- | --- |
+| No hat | 3,497,472 | about 65% |
+| With a hat | 62,954,496 | about 35% |
+
+So almost all the variety sits behind a hat that most bees do not wear, and random
+generation repeats sooner than 66 million suggests. Measured over eight runs, the
+first repeat turned up between 1,263 and 7,174 bees, median about 3,500. Both
+numbers are honest: 66 million is what the library can make, 3,500 is roughly when
+you would notice a face twice.
 
 There is no eyewear. Glasses were generated and then dropped: the base they were
 drawn onto had no eyes, so the model filled the lenses with clay, and 14 of the 24
