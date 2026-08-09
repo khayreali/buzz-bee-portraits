@@ -2,7 +2,7 @@
 
 # buzz-bee-portraits
 
-**Claymation bee portraits for your Buzz agents. One command to install, no API key, instant.**
+**Claymation bee portraits for your Buzz agents.**
 
 [![ci](https://github.com/khayreali/buzz-bee-portraits/actions/workflows/ci.yml/badge.svg)](https://github.com/khayreali/buzz-bee-portraits/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
@@ -14,25 +14,15 @@
 
 ![eight generated bees](docs/examples.png)
 
-<sub>Eight bees from eight seeds. Nothing hand picked, nothing designed by anyone.</sub>
+<sub>Randomly generate 66,451,968 bee portraits</sub>
 
 </div>
 
 ---
 
-## Introduction
+## introduction
 
-Every agent you create starts out wearing the same stock icon as every other agent.
-This gives each one a face.
-
-- **No API key, no cost, no network.** The parts ship with the repository. Making a
-  bee is local file work.
-- **Instant.** About a sixth of a second per portrait.
-- **66 million combinations.** 111 hand reviewed parts across five slots, times
-  twelve clay colours. About 3,500 before a random repeat, see [the parts](#the-parts).
-- **Reproducible.** The same seed always gives the same bee, and every portrait is
-  written with a JSON sidecar recording exactly what went into it.
-- **One dependency.** Python 3 and Pillow.
+I have set up a number of sprite parts, shipped with this repo, so no api key or any payments are needed. Portraits are generated in a sixth of a second, with 66 million possible combinations. The only dependency is Pillow.
 
 ---
 
@@ -46,20 +36,9 @@ If you already have a clone, run `./install.sh` from inside it instead.
 
 The installer copies the skill, the tools and the parts into
 `~/.buzz/.agents/skills/bee-portrait/`, then links that directory into every agent
-runtime set up in your nest, because each runtime only reads its own skill folder:
+runtime set up in your nest, because each runtime only reads its own skill folder i.e. `.claude/skills`
 
-| Runtime | Reads from |
-| --- | --- |
-| Claude Code | `.claude/skills/` |
-| Goose | `.goose/skills/` |
-| Codex | `.codex/skills/` |
-
-Restart your agent and `bee-portrait` appears in its skill list.
-
-```bash
-./install.sh --check          # what is installed, and what is linked to it
-BUZZ_NEST=/path ./install.sh  # if your agents do not run in ~/.buzz
-```
+Restart your agent and `bee-portrait` appears in its skill list. Alternatively, just refresh the page.
 
 ---
 
@@ -69,7 +48,7 @@ BUZZ_NEST=/path ./install.sh  # if your agents do not run in ~/.buzz
 python3 bin/make_bee.py --seed 7 --out bee.png
 ```
 
-That is the whole thing. It prints what it chose:
+And choices are printed.
 
 ```
 wrote bee.png
@@ -136,31 +115,6 @@ its own portrait. Nobody can apply one on its behalf.
 | `mouth` | 24 | yes |
 | `headwear` | 18 | about one bee in three |
 
-111 parts. Headwear stays rare on purpose, because a hat on every bee stops reading
-as a face and starts reading as clutter.
-
-That gives 5,537,664 shapes before colour, and 66,451,968 bees once the twelve clay
-colours are counted.
-
-Worth being straight about a second number though. Because a hat is only drawn on
-about one bee in three, most bees come from a much smaller pool:
-
-| | Possible | Share of random draws |
-| --- | --- | --- |
-| No hat | 3,497,472 | about 65% |
-| With a hat | 62,954,496 | about 35% |
-
-So almost all the variety sits behind a hat that most bees do not wear, and random
-generation repeats sooner than 66 million suggests. Measured over eight runs, the
-first repeat turned up between 1,263 and 7,174 bees, median about 3,500. Both
-numbers are honest: 66 million is what the library can make, 3,500 is roughly when
-you would notice a face twice.
-
-There is no eyewear. Glasses were generated and then dropped: the base they were
-drawn onto had no eyes, so the model filled the lenses with clay, and 14 of the 24
-hid the eyes completely when composited over a real pair. The parts are still in the
-repository, marked as dropped, in case somebody wants to solve that properly.
-
 ---
 
 ## How it works
@@ -185,42 +139,6 @@ The base is neutral grey on purpose. Grey means its brightness is pure shading, 
 recolouring maps that shading onto any colour and the clay still looks like clay.
 Parts that are body coloured, like antennae and noses, are recoloured with the body.
 Parts with their own colours, like eyes and hats, keep them.
-
-### What this method cannot do
-
-It can add things to a head. It cannot replace one. Anything that swallows the
-silhouette, an enclosing helmet or a full face mask, makes the model redraw the body
-rather than decorate it, and those parts are rejected rather than shipped.
-
----
-
-## Drawing new parts
-
-This is the only part that needs a Google Gemini API key, and you only need it if you
-want to extend the library. Making bees never touches the network.
-
-```bash
-export GEMINI_API_KEY=your-key-here     # https://aistudio.google.com/apikey
-python3 sprites/bin/batch.py mouth 24
-```
-
-Each new part costs about 13 cents and takes about 13 seconds. Two limits are worth
-knowing before you plan a big run, both on Google's side:
-
-| Limit | Tier 1 |
-| --- | --- |
-| Spending rate | 10 dollars per rolling 10 minutes |
-| Requests per day | 250 for this model |
-
-One generation at a time paces itself under the spending rate. The daily ceiling you
-cannot pace around, so 250 parts is a day's work.
-
-Every generated part is checked automatically before it is kept. The check asks one
-question: did any of the body disappear? Adding a part only ever adds pixels, so
-missing body means the model redrew the body and the part is unusable.
-
-> Do not regenerate `sprites/base.png`. Every part is tied to that exact base and a
-> new one will not subtract cleanly. Changing the base means regenerating all 111.
 
 ---
 
