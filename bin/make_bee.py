@@ -25,7 +25,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 SPRITES = HERE.parent / "sprites"
 
 # The order parts stack in. Later ones sit on top.
-ORDER = ["antennae", "nose", "mouth", "eyes", "glasses", "headwear"]
+ORDER = ["antennae", "nose", "mouth", "eyes", "headwear"]
 
 # An accessory on every bee is noise, so they stay rare.
 ACCESSORY_CHANCE = 0.35

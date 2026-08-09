@@ -79,7 +79,6 @@
     "long-thin",
     "lopsided",
     "no-nostrils",
-    "none",
     "pinched",
     "pinched-top",
     "red-tip",
@@ -93,7 +92,9 @@
     "upturned",
     "wrinkled-nose"
    ],
-   "rejected": []
+   "rejected": [
+    "none"
+   ]
   },
   "mouth": {
    "body_coloured": true,
@@ -126,37 +127,6 @@
    ],
    "rejected": []
   },
-  "glasses": {
-   "body_coloured": false,
-   "optional": true,
-   "parts": [
-    "amber-tint",
-    "blindfold",
-    "cat-eye",
-    "copper-wire",
-    "double-bridge",
-    "eyeshade",
-    "gradient",
-    "half-moon",
-    "hexagon-frames",
-    "looking-over",
-    "lopsided-lenses",
-    "lorgnette",
-    "motorcycle",
-    "none",
-    "one-lens-missing",
-    "red-plastic",
-    "semi-rimless",
-    "shield-visor",
-    "snow-slit",
-    "spiral-lenses",
-    "tiny-square",
-    "two-pairs",
-    "two-tone",
-    "welding"
-   ],
-   "rejected": []
-  },
   "headwear": {
    "body_coloured": false,
    "optional": true,
@@ -170,7 +140,6 @@
     "hard-hat",
     "headband",
     "miner-helmet",
-    "none",
     "propeller",
     "rabbit-ears",
     "ranger-hat",
@@ -185,11 +154,16 @@
     "bonnet",
     "fencing-mask",
     "football-helmet",
+    "none",
     "top-hat",
     "wizard"
    ]
   }
  },
- "combinations_before_colour": 152064000,
- "rejected_note": "Parts the quality gate refused. Kept on disk so the decision is auditable, never assembled. A part is refused when the model redrew the body instead of adding to it."
+ "combinations_before_colour": 5537664,
+ "rejected_note": "Parts the quality gate refused, plus the generated 'none' images, which repaint the face instead of being the absence of a layer. Absence is done with the --slot none flag, which simply skips that layer.",
+ "dropped_slots": {
+  "glasses": "Lenses were drawn opaque because the base they were generated on had no eyes to show through. 14 of 24 hid the eyes.",
+  "chest": "The base has no chest, so clothing landed across the mouth."
+ }
 }

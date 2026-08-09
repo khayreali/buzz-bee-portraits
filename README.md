@@ -7,8 +7,8 @@
 [![ci](https://github.com/khayreali/buzz-bee-portraits/actions/workflows/ci.yml/badge.svg)](https://github.com/khayreali/buzz-bee-portraits/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
-[![parts](https://img.shields.io/badge/parts-137-F5A623.svg)](#the-parts)
-[![combinations](https://img.shields.io/badge/combinations-1.8%20billion-8E75B2.svg)](#the-parts)
+[![parts](https://img.shields.io/badge/parts-111-F5A623.svg)](#the-parts)
+[![combinations](https://img.shields.io/badge/combinations-66%20million-8E75B2.svg)](#the-parts)
 
 [Install](#install) · [Usage](#usage) · [The parts](#the-parts) · [How it works](#how-it-works) · [Drawing new parts](#drawing-new-parts) · [Design notes](docs/BEE_PORTRAIT_SYSTEM.md)
 
@@ -28,7 +28,7 @@ This gives each one a face.
 - **No API key, no cost, no network.** The parts ship with the repository. Making a
   bee is local file work.
 - **Instant.** About a sixth of a second per portrait.
-- **1.8 billion combinations.** 137 hand reviewed parts across six slots, times
+- **66 million combinations.** 111 hand reviewed parts across five slots, times
   twelve clay colours.
 - **Reproducible.** The same seed always gives the same bee, and every portrait is
   written with a JSON sidecar recording exactly what went into it.
@@ -74,10 +74,9 @@ That is the whole thing. It prints what it chose:
 ```
 wrote bee.png
   antennae  elbowed--pencil-stub
-  nose      pinched
+  nose      pinched-top
   mouth     two-teeth
   eyes      button
-  glasses   shield-visor
   headwear  watermelon-rind
   colour    moss
   seed      7
@@ -92,7 +91,7 @@ Every slot has a flag. Anything you do not name is still picked at random.
 
 ```bash
 python3 bin/make_bee.py --colour teal --antennae coil--ball --eyes wide-awake --out bee.png
-python3 bin/make_bee.py --headwear none --glasses none --out plain.png
+python3 bin/make_bee.py --headwear none --out plain.png
 ```
 
 | Flag | What it does |
@@ -100,7 +99,7 @@ python3 bin/make_bee.py --headwear none --glasses none --out plain.png
 | `--seed` | Same seed, same bee |
 | `--colour` | A name from `--list colour`, or a hex value like `#D9A21B` |
 | `--size` | Output size in pixels, default 384 |
-| `--antennae` `--eyes` `--nose` `--mouth` `--glasses` `--headwear` | Pick one by name, or `none` |
+| `--antennae` `--eyes` `--nose` `--mouth` `--headwear` | Pick one by name, or `none` |
 
 List what a slot holds:
 
@@ -133,16 +132,20 @@ its own portrait. Nobody can apply one on its behalf.
 | --- | --- | --- |
 | `antennae` | 22 | yes |
 | `eyes` | 24 | yes |
-| `nose` | 24 | yes |
+| `nose` | 23 | yes |
 | `mouth` | 24 | yes |
-| `glasses` | 24 | about one bee in three |
-| `headwear` | 19 | about one bee in three |
+| `headwear` | 18 | about one bee in three |
 
-137 parts. Accessories stay rare on purpose, because a hat and glasses on every bee
-stops reading as a face and starts reading as clutter.
+111 parts. Headwear stays rare on purpose, because a hat on every bee stops reading
+as a face and starts reading as clutter.
 
-That gives 152,064,000 shapes before colour, and 1.8 billion once the twelve clay
+That gives 5,537,664 shapes before colour, and 66 million once the twelve clay
 colours are counted.
+
+There is no eyewear. Glasses were generated and then dropped: the base they were
+drawn onto had no eyes, so the model filled the lenses with clay, and 14 of the 24
+hid the eyes completely when composited over a real pair. The parts are still in the
+repository, marked as dropped, in case somebody wants to solve that properly.
 
 ---
 
@@ -203,7 +206,7 @@ question: did any of the body disappear? Adding a part only ever adds pixels, so
 missing body means the model redrew the body and the part is unusable.
 
 > Do not regenerate `sprites/base.png`. Every part is tied to that exact base and a
-> new one will not subtract cleanly. Changing the base means regenerating all 137.
+> new one will not subtract cleanly. Changing the base means regenerating all 111.
 
 ---
 

@@ -29,10 +29,9 @@ same thing, which is enough to rebuild that exact bee later:
 ```
 wrote bee.png
   antennae  elbowed--pencil-stub
-  nose      pinched
+  nose      pinched-top
   mouth     two-teeth
   eyes      button
-  glasses   shield-visor
   headwear  watermelon-rind
   colour    moss
   seed      7
@@ -48,7 +47,7 @@ let the rest fall out.
 
 ```bash
 python3 <skill>/bin/make_bee.py --colour teal --eyes wide-awake --out bee.png
-python3 <skill>/bin/make_bee.py --headwear none --glasses none --out plain.png
+python3 <skill>/bin/make_bee.py --headwear none --out plain.png
 ```
 
 | Flag | What it does |
@@ -56,7 +55,7 @@ python3 <skill>/bin/make_bee.py --headwear none --glasses none --out plain.png
 | `--seed` | Same seed, same bee |
 | `--colour` | A name from `--list colour`, or a hex value like `#D9A21B` |
 | `--size` | Output size in pixels, default 384 |
-| `--antennae` `--eyes` `--nose` `--mouth` `--glasses` `--headwear` | Pick one by name, or `none` |
+| `--antennae` `--eyes` `--nose` `--mouth` `--headwear` | Pick one by name, or `none` |
 
 See what a slot holds before choosing:
 
@@ -65,8 +64,11 @@ python3 <skill>/bin/make_bee.py --list eyes
 python3 <skill>/bin/make_bee.py --list colour
 ```
 
-Glasses and headwear are drawn on roughly one bee in three. That is deliberate.
-An accessory on every bee reads as clutter rather than as character.
+Headwear is drawn on roughly one bee in three. That is deliberate. A hat on
+every bee reads as clutter rather than as character.
+
+There is no eyewear slot. Glasses were built and dropped, because the lenses came
+out opaque and covered the eyes.
 
 ## Choosing a colour that does not collide
 
@@ -85,8 +87,8 @@ Pick one nobody is using, or pass a hex value of your own.
 
 Open the file. The things worth rejecting a bee over:
 
-- The face is crowded. Glasses over heavy eyes with a hat on top can turn into
-  soup at small sizes. Drop one with `--glasses none` or `--headwear none`.
+- The face is crowded. A hat over heavy eyes can turn into soup at small sizes.
+  Drop it with `--headwear none`.
 - The colour is close to another agent on the same roster.
 - The mouth disappears against the body. Some quiet mouths vanish on dark clay.
 
@@ -132,7 +134,7 @@ per rolling ten minutes and 250 images per day on tier 1, so one generation at a
 time is the safe pace and 250 parts is a day of work.
 
 Do not regenerate `sprites/base.png`. Every part was drawn onto that exact base
-and is recovered by subtracting it back out, so a new base breaks all 137.
+and is recovered by subtracting it back out, so a new base breaks all 111.
 
 ## When something fails
 
