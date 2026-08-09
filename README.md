@@ -1,6 +1,6 @@
 <div align="center">
 
-# buzz-bee-portraits
+# Buzz Claymation Portraits
 
 **Claymation bee portraits for your Buzz agents.**
 
